@@ -34,23 +34,27 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <Navbar variant='dark' bg="dark" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+    <Navbar variant='light' bg="light" expand="lg">
+      <Navbar.Brand href="/">LGBTees</Navbar.Brand>
+      <Nav className="me-auto">
+        <Nav.Link href="/">Home</Nav.Link>
+        {/* <Nav.Link href="#link">Link</Nav.Link> */}
+        <NavDropdown title="Profile" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">
+            Another action
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          {isLoaded && sessionUser && (
+            <>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item onClick={logout}>
+                Log Out
               </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
+            </>
+          )}
+        </NavDropdown>
+      </Nav>
     </Navbar>
 
 

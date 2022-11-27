@@ -5,6 +5,7 @@ import LoginFormPage from './components/Login';
 import SignupFormPage from './components/Signup';
 import Navigation from './components/Nav';
 import * as sessionActions from './store/session';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const dispatch = useDispatch();
