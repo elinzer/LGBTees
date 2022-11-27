@@ -10,17 +10,29 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Tee.belongsTo(models.User, { foreignKey: 'userId' });
     }
   }
   Tee.init({
     name: DataTypes.STRING,
-    url: DataTypes.STRING,
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true,
+      },
+    },
     userId: DataTypes.INTEGER,
-    price: DataTypes.INTEGER
+    price: DataTypes.DECIMAL
   }, {
     sequelize,
     modelName: 'Tee',
+    defaultScope: {
+      exclude: [
+        'createdAt',
+        'updatedAt',
+      ],
+    },
   });
   return Tee;
 };
