@@ -23,7 +23,15 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     userId: DataTypes.INTEGER,
-    price: DataTypes.DECIMAL
+    price: DataTypes.DECIMAL,
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true,
+      },
+    },
+    brand: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Tee',

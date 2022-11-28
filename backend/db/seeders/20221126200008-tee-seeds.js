@@ -21,33 +21,43 @@ module.exports = {
     await queryInterface.bulkInsert('Tees', [
       {
         name: 'Protect Trans Folks',
-        url: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
+        url: 'https://www.flavnt.com/clothing/ptf-largeprint',
         userId: 1,
-        price: 29.99
+        price: 29.99,
+        brand: 'Flavnt',
+        imageUrl: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
       },
       {
-        name: 'Protect Trans Folks',
-        url: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
-        userId: 1,
-        price: 29.99
+        name: 'Thank You For Existing',
+        url: 'https://transfigureprintco.com/shop/thank-you-for-existing-shirt',
+        userId: 2,
+        price: 30.00,
+        brand: 'Transfigure Print Co.',
+        imageUrl: 'https://images.squarespace-cdn.com/content/v1/5d0c51d9de0717000158d294/1657737430375-ZOL40BANQDPE268E1UGX/thankyouforexistingshirt.png',
       },
       {
-        name: 'Protect Trans Folks',
-        url: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
-        userId: 1,
-        price: 29.99
+        name: "Who All's Gay Here",
+        url: 'https://www.hellomerch.com/collections/autostraddle/products/who-all-s-gay-here-tie-dye-tee',
+        userId: 3,
+        price: 26.00,
+        brand: 'Autostraddle',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0015/2602/products/Whoall_sgayheremain.png?v=1639425855',
       },
       {
-        name: 'Protect Trans Folks',
-        url: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
+        name: 'Grow At Your Own Pace',
+        url: 'https://www.flavnt.com/clothing/grow-graphic-tee',
         userId: 1,
-        price: 29.99
+        price: 29.99,
+        brand: 'Flavnt',
+        imageUrl: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1590439645342-EJE63TRNQ86MB6KTHTQO/grow-text-white_mockup_Front_Wrinkled_Oxblood-Black+copy.jpg',
       },
       {
-        name: 'Protect Trans Folks',
-        url: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
-        userId: 1,
-        price: 29.99
+        name: 'Alphabet Mafia',
+        url: 'https://www.awarewolfapparel.com/products/alphabet-mafia',
+        userId: 4,
+        price: 19.99,
+        brand: 'Awarewolf Apparel',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/1494/9378/products/mafi_gold_1728x.png',
       },
     ], {});
 
