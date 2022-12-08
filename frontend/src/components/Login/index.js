@@ -52,6 +52,9 @@ const LoginFormPage = () => {
           required
           />
       </Form.Group>
+      <Button variant="outline-primary" type="submit">
+        Login
+      </Button>
     </Form>
     // <form onSubmit={handleSubmit}>
     //
