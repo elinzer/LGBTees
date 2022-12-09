@@ -17,7 +17,6 @@ const LoginFormPage = () => {
     <Redirect to="/" />
   );
 
-  //dummy commit
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);

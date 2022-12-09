@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -31,66 +33,74 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
-        Email
-        <input
-          type="text"
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>Email</Form.Label>
+        <Form.Control
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        First Name
-        <input
           type="text"
+          placeholder="Enter email"
+          required
+          />
+      </Form.Group>
+      <Form.Group controlId="formBasicFirstName">
+        <Form.Label>First Name</Form.Label>
+        <Form.Control
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <label>
-          Last Name
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </label>
-      </label>
-      <label>
-        Username
-        <input
           type="text"
+          placeholder="Enter first name"
+          required
+          />
+      </Form.Group>
+      <Form.Group controlId="formBasicLastName">
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          type="text"
+          placeholder="Enter last name"
+          required
+          />
+      </Form.Group>
+      <Form.Group controlId="formBasicUsername">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          type="text"
+          placeholder="Enter username"
           required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
+          />
+      </Form.Group>
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
           type="password"
+          placeholder="Password"
+          required
+          />
+      </Form.Group>
+      <Form.Group controlId="formBasicConfirmPassword">
+        <Form.Label>Confirm Password</Form.Label>
+        <Form.Control
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          type="password"
+          placeholder="Confirm Password"
           required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+          />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Sign Up
+      </Button>
+      </Form>
   );
 }
 

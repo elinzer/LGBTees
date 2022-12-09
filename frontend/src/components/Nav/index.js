@@ -40,7 +40,7 @@ function Navigation({ isLoaded }) {
         <Nav.Link href="/">Home</Nav.Link>
         {/* <Nav.Link href="#link">Link</Nav.Link> */}
         <NavDropdown title="Profile" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">
             Another action
           </NavDropdown.Item>
