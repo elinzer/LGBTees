@@ -1,0 +1,10 @@
+.signup-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.signup-button {
+    margin-top: 10px;
+}

@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import './signup.css'
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function SignupFormPage() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='signup-form'>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
@@ -97,9 +98,11 @@ function SignupFormPage() {
           required
           />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <div className='d-grid gap-2'>
+      <Button variant="outline-primary" type="submit" className='signup-button'>
         Sign Up
       </Button>
+      </div>
       </Form>
   );
 }
