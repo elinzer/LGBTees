@@ -7,12 +7,14 @@ import Tees from './components/Tees';
 import Navigation from './components/Nav';
 import * as sessionActions from './store/session';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as teeActions from './store/tee';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(teeActions.getAllTees());
   }, [dispatch]);
 
 
