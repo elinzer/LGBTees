@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './login.css'
 
 const LoginFormPage = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const LoginFormPage = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='login-form'>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
@@ -52,9 +53,11 @@ const LoginFormPage = () => {
           required
           />
       </Form.Group>
-      <Button variant="outline-primary" type="submit">
+      <div className='d-grid gap-2'>
+      <Button variant="outline-primary" type="submit" className='login-button'>
         Login
       </Button>
+      </div>
     </Form>
     // <form onSubmit={handleSubmit}>
     //

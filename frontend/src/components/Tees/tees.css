@@ -1,0 +1,14 @@
+.tee-img {
+    width: 300px;
+    height: 300px;
+
+}
+
+.tee-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
