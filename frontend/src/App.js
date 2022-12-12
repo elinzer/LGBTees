@@ -6,9 +6,11 @@ import SignupFormPage from './components/Signup';
 import Tees from './components/Tees';
 import MyTees from './components/UserPages/UserTees';
 import Navigation from './components/Nav';
+import Splash from './components/Splash';
 import * as sessionActions from './store/session';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as teeActions from './store/tee';
+import About from './components/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +26,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+      <Route exact path="/">
+        <Splash />
+      </Route>
       <Route path="/login">
         <LoginFormPage />
       </Route>
@@ -35,6 +40,9 @@ function App() {
       </Route>
       <Route path="/my-tees">
         <MyTees />
+      </Route>
+      <Route>
+        <About />
       </Route>
     </Switch>
       )}
