@@ -20,7 +20,7 @@ const MyTees = () => {
                     <Image src={tee.imageUrl} alt={tee.name} className='tee-img' />
                     <div>{tee.name}</div>
                     <Button onClick={() => setModalShow(true)}>Edit Tee</Button>
-                    <EditTee  show={modalShow} onHide={() => setModalShow(false)} />
+                    <EditTee  show={modalShow} tee={tee} onHide={() => setModalShow(false)} />
                     </div>
             ))}
         </div>
