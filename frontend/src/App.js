@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import LoginFormPage from './components/Login';
 import SignupFormPage from './components/Signup';
 import Tees from './components/Tees';
+import MyTees from './components/UserPages/UserTees';
 import Navigation from './components/Nav';
 import * as sessionActions from './store/session';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +32,9 @@ function App() {
       </Route>
       <Route path="/tees">
         <Tees />
+      </Route>
+      <Route path="/my-tees">
+        <MyTees />
       </Route>
     </Switch>
       )}
