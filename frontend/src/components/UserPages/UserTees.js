@@ -19,6 +19,8 @@ const MyTees = () => {
                 <div key={tee.id}>
                     <Image src={tee.imageUrl} alt={tee.name} className='tee-img' />
                     <div>{tee.name}</div>
+                    <div>{tee.brand}</div>
+                    <div>{tee.price}</div>
                     <Button onClick={() => setModalShow(true)}>Edit Tee</Button>
                     <EditTee  show={modalShow} tee={tee} onHide={() => setModalShow(false)} />
                     </div>
