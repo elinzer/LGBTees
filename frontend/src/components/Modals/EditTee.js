@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 
 const EditTee = (props) => {
-
+    const userId = useSelector(state => state.session.user.id);
     const tee = props.tee;
 
     const dispatch = useDispatch();
@@ -16,6 +16,10 @@ const EditTee = (props) => {
     const [imageUrl, setImageUrl] = useState(tee.imageUrl);
     const [url, setUrl] = useState(tee.url);
     const [brand, setBrand] = useState(tee.brand);
+
+    const handleChange = () => {
+        dispatch(teeActions.editTee(tee.id, name, price, imageUrl, url, brand, userId))
+    }
 
 
 
@@ -39,14 +43,23 @@ const EditTee = (props) => {
                     <Form.Control
                     type='text'
                     value={tee.name}
+                    onChange={(e) => setName(e.target.value)}
                      />
+                </Form.Group>
+                <Form.Group controlId='teePrice'>
+                    <Form.Label>Tee Price</Form.Label>
+                    <Form.Control
+                    type='text'
+                    value={tee.price}
+                    onChange={(e) => setPrice(e.target.value)}
+                      />
                 </Form.Group>
                 </Form>
         </div>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close without Changing</Button>
-        <Button onClick={props.onHide}>Save</Button>
+        <Button onClick={() => {props.onHide(); handleChange()}}>Save</Button>
       </Modal.Footer>
     </Modal>
   );

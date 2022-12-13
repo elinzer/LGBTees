@@ -16,6 +16,8 @@ const Tees = () => {
                 <div key={tee.id}>
                     <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
                     <div>{tee.name}</div>
+                    <div>{tee.brand}</div>
+                    <div>${tee.price}</div>
                 </div>
                 )
             )}
