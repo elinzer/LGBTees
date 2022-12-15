@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -33,17 +32,19 @@ function Navigation({ isLoaded }) {
           <Nav.Link href="/login">Log In</Nav.Link>
         )}
         {isLoaded && sessionUser && (
+          <Container>
           <NavDropdown title="Profile" id="basic-nav-dropdown">
             <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
+            <NavDropdown.Item href="/upload">
+              Add a Tee
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={logout}>
               Log Out
             </NavDropdown.Item>
           </NavDropdown>
+          </Container>
         )}
       </Nav>
       </Navbar.Collapse>
