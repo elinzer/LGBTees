@@ -3,11 +3,11 @@ import './About.css'
 const About = () => {
     return (
         <div>
-            <h2>About LGBTees</h2>
+            <h2 className='about-header'>About LGBTees</h2>
             <div>
                 LGBTees is a passion project built to show off my skills, teach myself new ones, all while highlighting some of my favorite things - queer businesses and t-shirts!
             </div>
-            <h3>Built With</h3>
+            <h3 className='about-header'>Built With</h3>
             <div className="tech-list">
                 <div className='indv-icon'><i className="devicon-react-original-wordmark"></i></div>
                 <div className='indv-icon'>
@@ -32,7 +32,7 @@ const About = () => {
                 <div className='indv-icon'><i class="devicon-heroku-original-wordmark"></i>
                 </div>
             </div>
-            <h2>About the Dev</h2>
+            <h2 className='about-header'>About the Dev</h2>
             <div className='indv-icon'>
             <i class="devicon-github-original-wordmark"></i>
             </div>
