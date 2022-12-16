@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import Image from "react-bootstrap/esm/Image";
 import Button from "react-bootstrap/esm/Button";
 import '../Tees/tees.css'
@@ -12,6 +13,7 @@ const MyTees = () => {
     const teeList = Object.values(tees);
     const myTees = teeList.filter(tee => tee.userId === sessionUser.id);
     const [modalShow, setModalShow] = useState(false);
+
 
     return (
         <div className='tee-display'>

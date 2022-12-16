@@ -58,29 +58,11 @@ const LoginFormPage = () => {
         Login
       </Button>
       </div>
+      <div style={{marginTop: '10px'}}>
+        Need to make an account? <a href='/signup'>Sign Up</a>
+      </div>
     </Form>
-    // <form onSubmit={handleSubmit}>
-    //
-    //   <label>
-    //     Username or Email
-    //     <input
-    //       type="text"
-    //       value={credential}
-    //       onChange={(e) => setCredential(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <label>
-    //     Password
-    //     <input
-    //       type="password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <Button type="submit">Log In</Button>
-    // </form>
+
   );
 }
 

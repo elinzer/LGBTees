@@ -103,6 +103,9 @@ function SignupFormPage() {
         Sign Up
       </Button>
       </div>
+      <div style={{marginTop: '10px'}}>
+        <p>Already have an account? <a href='/login'>Log In</a></p>
+      </div>
       </Form>
   );
 }
