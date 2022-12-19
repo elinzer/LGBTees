@@ -21,6 +21,15 @@ router.get('/:id', async (req, res) => {
 
 //get tees by current user
 //create a tee
+router.post('/', async (req, res) => {
+    const {name, price, imageUrl, url, brand, userId} = req.body;
+    const tee = await Tee.create({name, price, imageUrl, url, brand, userId});
+    res.json({
+        'Tee': tee
+    })
+}
+
+)
 //edit a tee
 //delete a tee
 
