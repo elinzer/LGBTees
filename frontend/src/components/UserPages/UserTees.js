@@ -5,6 +5,7 @@ import Image from "react-bootstrap/esm/Image";
 import Button from "react-bootstrap/esm/Button";
 import '../Tees/tees.css'
 import EditTee from "../Modals/EditTee";
+import AddTee from "../Modals/AddTee";
 
 const MyTees = () => {
 
@@ -15,7 +16,16 @@ const MyTees = () => {
     const [modalShow, setModalShow] = useState(false);
 
 
-    return (
+
+    if (myTees.length === 0) {
+        return (
+            <>
+            <h3>You don't have any tees to share. Why not add one?</h3>
+            <Button onClick={() => setModalShow(true)}>Add A Tee</Button>
+            <AddTee show={modalShow} onHide={() => setModalShow(false)} />
+            </>
+        )
+    } else return (
         <div className='tee-display'>
             {myTees.map(tee => (
                 <div key={tee.id}>
