@@ -34,9 +34,9 @@ function Navigation({ isLoaded }) {
         {isLoaded && sessionUser && (
           <Container>
           <NavDropdown title="Profile" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item>
+            {/* <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item> */}
             <NavDropdown.Item href="/my-faves">
-              My Favorites
+              My Faves
             </NavDropdown.Item>
             {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
             <NavDropdown.Divider />
