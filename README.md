@@ -11,7 +11,7 @@
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
 ### Wiki Links
-- <a href='https://github.com/elinzer/LGBTees/wiki/DB-Schema>DB Schema</a>
+- <a href='https://github.com/elinzer/LGBTees/wiki/DB-Schema'>DB Schema</a>
 - More coming soon
 
 ### How to run locally
