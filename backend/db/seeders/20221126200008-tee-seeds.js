@@ -30,7 +30,7 @@ module.exports = {
       {
         name: 'Thank You For Existing',
         url: 'https://transfigureprintco.com/shop/thank-you-for-existing-shirt',
-        userId: 2,
+        userId: 1,
         price: 30.00,
         brand: 'Transfigure Print Co.',
         imageUrl: 'https://images.squarespace-cdn.com/content/v1/5d0c51d9de0717000158d294/1657737430375-ZOL40BANQDPE268E1UGX/thankyouforexistingshirt.png',
@@ -38,7 +38,7 @@ module.exports = {
       {
         name: "Who All's Gay Here",
         url: 'https://www.hellomerch.com/collections/autostraddle/products/who-all-s-gay-here-tie-dye-tee',
-        userId: 3,
+        userId: 1,
         price: 26.00,
         brand: 'Autostraddle',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0015/2602/products/Whoall_sgayheremain.png?v=1639425855',
@@ -54,7 +54,7 @@ module.exports = {
       {
         name: 'Alphabet Mafia',
         url: 'https://www.awarewolfapparel.com/products/alphabet-mafia',
-        userId: 4,
+        userId: 1,
         price: 19.99,
         brand: 'Awarewolf Apparel',
         imageUrl: 'https://cdn.shopify.com/s/files/1/1494/9378/products/mafi_gold_1728x.png',
