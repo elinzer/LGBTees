@@ -7,6 +7,7 @@ import '../Tees/tees.css'
 import EditTee from "../Modals/EditTee";
 import AddTee from "../Modals/AddTee";
 import * as teeActions from "../../store/tee.js"
+import * as faveActions from "../../store/faves.js"
 
 const MyTees = () => {
 
@@ -17,6 +18,10 @@ const MyTees = () => {
     const myTees = teeList.filter(tee => tee.userId === sessionUser.id);
     const [editModalShow, setEditModalShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
+    const isAdmin = sessionUser.id === 1;
+    const faves = useSelector(state => state.faves);
+    const myFaves = Object.values(faves).filter(fave => fave.userId === sessionUser.id);
+    console.log(myFaves);
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
@@ -25,11 +30,19 @@ const MyTees = () => {
     if (myTees.length === 0) {
         return (
             <>
-                <h3>You don't have any tees to share. Why not add one?</h3>
+                <h3>You don't have any tees favorited. Why not fave one?</h3>
             </>
         )
     } else return (
         <div>
+            {sessionUser && !isAdmin && (
+                <>
+                    <div>
+                    </div>
+                </>
+                   ) }
+            {isAdmin && (
+            <>
             <Button onClick={() => setModalShow(true)}>Add A Tee</Button>
             <AddTee show={modalShow} onHide={() => setModalShow(false)} />
             <div className='tee-display'>
@@ -44,6 +57,7 @@ const MyTees = () => {
                     </div>
                 ))}
             </div>
+                </>)}
         </div>
     )
 }

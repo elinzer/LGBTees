@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Fave.belongsTo(models.User, { foreignKey: 'userId' });
-      Fave.belongsTo(models.Tee, { foreignKey: 'teeId' });
+      Fave.belongsTo(models.User, { foreignKey: 'userId', onDelete: 'CASCADE' });
+      Fave.belongsTo(models.Tee, { foreignKey: 'teeId', onDelete: 'CASCADE' });
 
     }
   }
@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Fave',
+    defaultScope: {
+      attributes: {
+        exclude: ['createdAt', 'updatedAt']
+      }
+    },
   });
   return Fave;
 };
