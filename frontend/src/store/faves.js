@@ -8,7 +8,7 @@ const get = (faves) => ({
 })
 
 export const getAllFaves = (id) => async (dispatch) => {
-
+    console.log(id)
     const { userId } = id;
 
     const response = await csrfFetch('/api/faves',

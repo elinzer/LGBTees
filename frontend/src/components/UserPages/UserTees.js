@@ -7,6 +7,7 @@ import '../Tees/tees.css'
 import EditTee from "../Modals/EditTee";
 import AddTee from "../Modals/AddTee";
 import * as teeActions from "../../store/tee.js"
+import * as faveActions from "../../store/faves.js"
 
 const MyTees = () => {
 
@@ -18,9 +19,12 @@ const MyTees = () => {
     const [editModalShow, setEditModalShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
     const isAdmin = sessionUser.id === 1;
+    const faves = useSelector(state => state.faves);
+    console.log(faves)
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
+        dispatch(faveActions.getAllFaves(1));
     }, [dispatch]);
 
     if (myTees.length === 0) {

@@ -19,19 +19,19 @@ module.exports = {
     */
     await queryInterface.bulkInsert('Faves', [
       {
-        userId: 1,
+        userId: 2,
         teeId: 2,
       },
       {
-        userId: 1,
+        userId: 2,
         teeId: 3,
       },
       {
-        userId: 2,
+        userId: 3,
         teeId: 1,
       },
       {
-        userId: 2,
+        userId: 4,
         teeId: 4,
       },
     ], {});
