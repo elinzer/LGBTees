@@ -20,7 +20,8 @@ const MyTees = () => {
     const [modalShow, setModalShow] = useState(false);
     const isAdmin = sessionUser.id === 1;
     const faves = useSelector(state => state.faves);
-    console.log(faves)
+    const myFaves = Object.values(faves).filter(fave => fave.userId === sessionUser.id);
+    console.log(myFaves);
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
@@ -34,7 +35,15 @@ const MyTees = () => {
         )
     } else return (
         <div>
-            {isAdmin && <Button onClick={() => setModalShow(true)}>Add A Tee</Button>}
+            {sessionUser && !isAdmin && (
+                <>
+                    <div>
+                    </div>
+                </>
+                   ) }
+            {isAdmin && (
+            <>
+            <Button onClick={() => setModalShow(true)}>Add A Tee</Button>
             <AddTee show={modalShow} onHide={() => setModalShow(false)} />
             <div className='tee-display'>
                 {myTees.map(tee => (
@@ -43,11 +52,12 @@ const MyTees = () => {
                         <div>{tee.name}</div>
                         <div>{tee.brand}</div>
                         <div>{tee.price}</div>
-                        {isAdmin && <Button onClick={() => setEditModalShow(true)}>Edit Tee</Button>}
+                        <Button onClick={() => setEditModalShow(true)}>Edit Tee</Button>
                         <EditTee show={editModalShow} tee={tee} onHide={() => setEditModalShow(false)} />
                     </div>
                 ))}
             </div>
+                </>)}
         </div>
     )
 }
