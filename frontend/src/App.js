@@ -38,7 +38,7 @@ function App() {
       <Route path="/tees">
         <Tees />
       </Route>
-      <Route path="/my-tees">
+      <Route path="/my-faves">
         <MyTees />
       </Route>
       <Route>

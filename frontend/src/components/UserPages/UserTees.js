@@ -17,6 +17,7 @@ const MyTees = () => {
     const myTees = teeList.filter(tee => tee.userId === sessionUser.id);
     const [editModalShow, setEditModalShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
+    const isAdmin = sessionUser.id === 1;
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
@@ -25,12 +26,12 @@ const MyTees = () => {
     if (myTees.length === 0) {
         return (
             <>
-                <h3>You don't have any tees to share. Why not add one?</h3>
+                <h3>You don't have any tees favorited. Why not fave one?</h3>
             </>
         )
     } else return (
         <div>
-            <Button onClick={() => setModalShow(true)}>Add A Tee</Button>
+            {isAdmin && <Button onClick={() => setModalShow(true)}>Add A Tee</Button>}
             <AddTee show={modalShow} onHide={() => setModalShow(false)} />
             <div className='tee-display'>
                 {myTees.map(tee => (
@@ -39,7 +40,7 @@ const MyTees = () => {
                         <div>{tee.name}</div>
                         <div>{tee.brand}</div>
                         <div>{tee.price}</div>
-                        <Button onClick={() => setEditModalShow(true)}>Edit Tee</Button>
+                        {isAdmin && <Button onClick={() => setEditModalShow(true)}>Edit Tee</Button>}
                         <EditTee show={editModalShow} tee={tee} onHide={() => setEditModalShow(false)} />
                     </div>
                 ))}
