@@ -10,6 +10,7 @@ import Splash from './components/Splash';
 import * as sessionActions from './store/session';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as teeActions from './store/tee';
+import * as faveActions from './store/faves';
 import About from './components/About';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(teeActions.getAllTees());
+    dispatch(faveActions.getAllFaves());
   }, [dispatch]);
 
 

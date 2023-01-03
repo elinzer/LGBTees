@@ -24,7 +24,6 @@ const MyTees = () => {
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
-        dispatch(faveActions.getAllFaves(1));
     }, [dispatch]);
 
     if (myTees.length === 0) {

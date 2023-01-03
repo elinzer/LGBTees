@@ -5,18 +5,18 @@ const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
 
-// get faves by user
+// get all faves
 router.get('/', requireAuth, async (req, res) => {
 
-    const { userId } = req.body;
+    const faves = await Fave.findAll();
 
-    const faves = await Fave.findAll(
-        { where: { userId: userId } }
-        );
-        res.json({
-            'Faves': faves
-        })
+    return res.json({
+        Faves: faves
     });
+
+});
+
+// get faves by user id
 
 
 // get tee(s) with most faves?

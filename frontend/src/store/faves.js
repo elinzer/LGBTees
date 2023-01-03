@@ -7,22 +7,11 @@ const get = (faves) => ({
     payload: faves
 })
 
-export const getAllFaves = (id) => async (dispatch) => {
-    console.log(id)
-    const { userId } = id;
-
-    const response = await csrfFetch('/api/faves',
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                userId: userId
-            })
-        }
-    );
+export const getAllFaves = () => async (dispatch) => {
+    console.log("did u get here?")
+    const response = await csrfFetch('/api/faves');
     const data = await response.json();
+    console.log('data??', data)
     dispatch(get(data));
     return response;
 }
