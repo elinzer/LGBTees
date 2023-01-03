@@ -4,10 +4,14 @@ import { useState, useEffect } from 'react';
 import LoginFormPage from './components/Login';
 import SignupFormPage from './components/Signup';
 import Tees from './components/Tees';
+import MyTees from './components/UserPages/UserTees';
 import Navigation from './components/Nav';
+import Splash from './components/Splash';
 import * as sessionActions from './store/session';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as teeActions from './store/tee';
+import * as faveActions from './store/faves';
+import About from './components/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +19,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(teeActions.getAllTees());
+    dispatch(faveActions.getAllFaves());
   }, [dispatch]);
 
 
@@ -23,6 +28,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+      <Route exact path="/">
+        <Splash />
+      </Route>
       <Route path="/login">
         <LoginFormPage />
       </Route>
@@ -31,6 +39,12 @@ function App() {
       </Route>
       <Route path="/tees">
         <Tees />
+      </Route>
+      <Route path="/my-faves">
+        <MyTees />
+      </Route>
+      <Route>
+        <About />
       </Route>
     </Switch>
       )}

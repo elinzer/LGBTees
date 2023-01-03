@@ -15,7 +15,9 @@ const Tees = () => {
             {teeList.map((tee) => (
                 <div key={tee.id}>
                     <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
-                    <h4>{tee.name}</h4>
+                    <div>{tee.name}</div>
+                    <div>{tee.brand}</div>
+                    <div>${tee.price}</div>
                 </div>
                 )
             )}

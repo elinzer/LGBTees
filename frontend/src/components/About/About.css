@@ -1,0 +1,16 @@
+.tech-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.indv-icon {
+    font-size: 80px;
+}
+
+.about-header {
+    text-decoration: underline;
+}

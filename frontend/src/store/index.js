@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import teeReducer from "./tee";
+import favesReducer from "./faves";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   tees: teeReducer,
+  faves: favesReducer,
 });
 
 let enhancer;
