@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -8,12 +9,14 @@ import lgbtLogo from '../../imgs/lgbteeLogo.png';
 import './nav.css'
 
 function Navigation({ isLoaded }) {
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push('/');
   };
 
   return (
