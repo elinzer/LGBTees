@@ -70,10 +70,10 @@ const About = () => {
                     <div class="container px-5 my-5">
                         <div class="row gx-5 align-items-center">
                             <div class="col-lg-6 order-first order-lg-last indv-icon tech-list">
-                            <i className="devicon-react-original-wordmark"></i>
-                            <i class="devicon-redux-original"></i>
-                            <i class="devicon-bootstrap-plain-wordmark"></i>
-                            {/* <i class="devicon-html5-plain-wordmark"></i>
+                                <i className="devicon-react-original-wordmark"></i>
+                                <i class="devicon-redux-original"></i>
+                                <i class="devicon-bootstrap-plain-wordmark"></i>
+                                {/* <i class="devicon-html5-plain-wordmark"></i>
                             <i class="devicon-css3-plain-wordmark"></i> */}
                             </div>
                             <div class="col-lg-6">
@@ -96,31 +96,20 @@ const About = () => {
                                     <img class="img-fluid rounded-circle mb-4 px-4" src={profcrop} alt="..." />
                                     <h5 class="fw-bolder">El Linzer</h5>
                                     <div class="fst-italic text-muted">Software Engineer</div>
+                                    <div class='contact'>
+                                        <div class='contact-child'>
+                                            <a href='https://www.linkedin.com/in/elinzer/' target='_blank'><i class="devicon-linkedin-plain"></i></a>
+                                        </div>
+                                        <div class='contact-child'>
+                                        <a href='https://github.com/elinzer' target='_blank'><i class="devicon-github-original"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
-            {/* <!-- Footer--> */}
-            {/* <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; LGBTees</div></div>
-                    <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </footer> */}
-            {/* <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        {/* <!-- Core theme JS--> */}
-            {/* <script src="js/scripts.js"></script> */}
         </body>
     )
 }

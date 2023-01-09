@@ -14,3 +14,25 @@
 .about-header {
     text-decoration: underline;
 }
+
+.contact {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+
+.contact-child {
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-child > a {
+    text-decoration: none;
+    color: black;
+}
