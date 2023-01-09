@@ -33,6 +33,7 @@ const LoginFormPage = () => {
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
+      <h3>Welcome Back!</h3>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email/Username</Form.Label>
         <Form.Control
@@ -55,7 +56,7 @@ const LoginFormPage = () => {
       </Form.Group>
       <div className='d-grid gap-2'>
       <Button variant="outline-primary" type="submit" className='login-button'>
-        Login
+        Log in
       </Button>
       </div>
       <div style={{marginTop: '10px'}}>
