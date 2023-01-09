@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -9,6 +9,7 @@ import lgbtLogo from '../../imgs/lgbteeLogo.png';
 import './nav.css'
 
 function Navigation({ isLoaded }) {
+  console.log(window.location.href.endsWith('/login'))
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -32,7 +33,10 @@ function Navigation({ isLoaded }) {
         <Nav.Link href="/tees">Tees</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
         {isLoaded && !sessionUser && (
-          <Nav.Link href="/login">Log In</Nav.Link>
+          <>
+         {!window.location.href.endsWith('login') && (<Nav.Link href="/login">Log In</Nav.Link>)}
+          {!window.location.href.endsWith('/signup') && (<Nav.Link href="/signup">Sign Up</Nav.Link>)}
+          </>
         )}
         {isLoaded && sessionUser && (
           <Container>
