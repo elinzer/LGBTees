@@ -32,6 +32,8 @@ function Navigation({ isLoaded }) {
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/tees">Tees</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
+      </Nav>
+      <Nav>
         {isLoaded && !sessionUser && (
           <>
          {!window.location.href.endsWith('login') && (<Nav.Link href="/login">Log In</Nav.Link>)}
@@ -39,7 +41,7 @@ function Navigation({ isLoaded }) {
           </>
         )}
         {isLoaded && sessionUser && (
-          <Container>
+          <Container className='ms-auto'>
           <NavDropdown title="Profile" id="basic-nav-dropdown">
             {/* <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item> */}
             <NavDropdown.Item href="/my-faves">
