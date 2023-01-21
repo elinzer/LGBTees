@@ -7,3 +7,8 @@
     outline: none;
     cursor: pointer;
 }
+
+
+#basic-nav-dropdown::before {
+    display: none;
+}

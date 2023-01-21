@@ -12,7 +12,7 @@ const Splash = () => {
                                 <p class="lead fw-normal text-white-50 mb-4">Do you love T-shirts? Do you love the LGBTQ community? Find a shirt that speaks to you and rep the community in style!</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                     <a class="btn btn-primary btn-lg px-4 me-sm-3" href="/tees">Tee Time!</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="/about">What is happening?</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" href="/about">What's this about?</a>
                                 </div>
                             </div>
                         </div>
