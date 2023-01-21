@@ -20,6 +20,12 @@ function Navigation({ isLoaded }) {
     history.push('/');
   };
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.login({ credential: 'DemoUser', password: 'password' }));
+    history.push('/');
+  }
+
   return (
     <Navbar variant='light' bg="light" expand="sm">
       <Navbar.Brand href="/">
@@ -36,6 +42,7 @@ function Navigation({ isLoaded }) {
       <Nav>
         {isLoaded && !sessionUser && (
           <>
+          <Nav.Link onClick={demoLogin}>Demo User</Nav.Link>
          {!window.location.href.endsWith('login') && (<Nav.Link href="/login">Log In</Nav.Link>)}
           {!window.location.href.endsWith('/signup') && (<Nav.Link href="/signup">Sign Up</Nav.Link>)}
           </>
