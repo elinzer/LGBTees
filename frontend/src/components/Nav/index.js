@@ -49,7 +49,9 @@ function Navigation({ isLoaded }) {
         )}
         {isLoaded && sessionUser && (
           <Container className='ms-auto'>
-          <NavDropdown title="Profile" id="basic-nav-dropdown">
+          <NavDropdown title="Profile" id="basic-nav-dropdown"
+          drop='start'
+          className='profile-drop'>
             {/* <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item> */}
             <NavDropdown.Item href="/my-faves">
               My Faves
