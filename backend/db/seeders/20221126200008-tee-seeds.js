@@ -25,6 +25,7 @@ module.exports = {
         userId: 1,
         price: 29.99,
         brand: 'Flavnt',
+        brandUrl: 'https://www.flavnt.com/',
         imageUrl: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1609439822392-DSM6GQQR3N7R5KEMB5ZW/ptfflat1.jpg',
       },
       {
@@ -33,6 +34,7 @@ module.exports = {
         userId: 1,
         price: 30.00,
         brand: 'Transfigure Print Co.',
+        brandUrl: 'https://transfigureprintco.com/',
         imageUrl: 'https://images.squarespace-cdn.com/content/v1/5d0c51d9de0717000158d294/1657737430375-ZOL40BANQDPE268E1UGX/thankyouforexistingshirt.png',
       },
       {
@@ -41,6 +43,7 @@ module.exports = {
         userId: 1,
         price: 26.00,
         brand: 'Autostraddle',
+        brandUrl: 'https://www.autostraddle.com/',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0015/2602/products/Whoall_sgayheremain.png?v=1639425855',
       },
       {
@@ -49,6 +52,7 @@ module.exports = {
         userId: 1,
         price: 29.99,
         brand: 'Flavnt',
+        brandUrl: 'https://www.flavnt.com/',
         imageUrl: 'https://images.squarespace-cdn.com/content/v1/54b96f75e4b076c29fbb5eda/1590439645342-EJE63TRNQ86MB6KTHTQO/grow-text-white_mockup_Front_Wrinkled_Oxblood-Black+copy.jpg',
       },
       {
@@ -57,6 +61,7 @@ module.exports = {
         userId: 1,
         price: 19.99,
         brand: 'Awarewolf Apparel',
+        brandUrl: 'https://www.awarewolfapparel.com/',
         imageUrl: 'https://cdn.shopify.com/s/files/1/1494/9378/products/mafi_gold_1728x.png',
       },
     ], {});
