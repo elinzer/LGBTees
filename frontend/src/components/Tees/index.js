@@ -1,4 +1,6 @@
 import Image from 'react-bootstrap/Image';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import { useSelector } from 'react-redux';
 import './tees.css'
 
@@ -14,11 +16,35 @@ const Tees = () => {
             {teeList.map((tee) => (
                 <div key={tee.id} className='tee-card'>
                     <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
-                    <div><a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a></div>
-                    <div className='tee-brand'>{tee.brand}</div>
+                    <div>
+                        <OverlayTrigger
+                            key='top'
+                            placement='top'
+                            overlay={
+                                <Tooltip id={`tooltip-top`}>
+                                    Click to buy from {tee.brand}!
+                                </Tooltip>
+                            }
+                            >
+                            <a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a>
+                        </OverlayTrigger>
+                    </div>
+                    <div className='tee-brand'>
+                        <OverlayTrigger
+                            key='bottom'
+                            placement='bottom'
+                            overlay={
+                                <Tooltip id={`tooltip-bottom`}>
+                                    Click to visit {tee.brand}!
+                                </Tooltip>
+                            }
+                        >
+                        <a href={tee.brandUrl}>{tee.brand}</a>
+                        </OverlayTrigger>
+                        </div>
                     <div>${tee.price}</div>
                 </div>
-                )
+            )
             )}
         </div>
     )
