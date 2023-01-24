@@ -35,3 +35,14 @@
     font-weight: bold;
     font-style: italic;
 }
+
+.tee-brand > a {
+    text-decoration: none;
+    color: black;
+}
+
+.tee-brand > a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black;
+}
