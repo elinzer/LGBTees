@@ -15,6 +15,7 @@ const Tees = () => {
         <div className='tee-display'>
             {teeList.map((tee) => (
                 <div key={tee.id} className='tee-card'>
+                    <div className='fave-heart'><i class="fa-regular fa-heart"></i></div>
                     <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
                     <div>
                         <OverlayTrigger
@@ -24,8 +25,7 @@ const Tees = () => {
                                 <Tooltip id={`tooltip-top`}>
                                     Click to buy from {tee.brand}!
                                 </Tooltip>
-                            }
-                            >
+                            }>
                             <a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a>
                         </OverlayTrigger>
                     </div>
@@ -37,8 +37,7 @@ const Tees = () => {
                                 <Tooltip id={`tooltip-bottom`}>
                                     Click to visit {tee.brand}!
                                 </Tooltip>
-                            }
-                        >
+                            }>
                         <a href={tee.brandUrl}>{tee.brand}</a>
                         </OverlayTrigger>
                         </div>
