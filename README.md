@@ -15,7 +15,9 @@
 - More coming soon
 
 ### How to run locally
-Coming soon
+- Clone repo
+- cd into 'backend' and run 'npm i' then 'npm start'
+- In another terminal cd into 'frontend' and run 'npm i' then 'npm start'
 
 ### Feature Screenshots
 Coming soon
