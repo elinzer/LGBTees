@@ -1,12 +1,19 @@
 import { csrfFetch } from "./csrf";
 
 const GET_FAVES = "faves/GET_FAVES";
+const ADD_FAVE = "faves/ADD_FAVE";
 
 const get = (faves) => ({
     type: GET_FAVES,
     payload: faves
 })
 
+const add = (fave) => ({
+    type: ADD_FAVE,
+    payload: fave
+})
+
+//get all faves
 export const getAllFaves = () => async (dispatch) => {
     console.log("did u get here?")
     const response = await csrfFetch('/api/faves');
@@ -15,6 +22,28 @@ export const getAllFaves = () => async (dispatch) => {
     dispatch(get(data));
     return response;
 }
+
+//add fave
+export const addFave = (info) => async (dispatch) => {
+
+    const {teeId, userId} = info;
+
+    const response = await csrfFetch('/api/faves', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            teeId,
+            userId
+        })
+    });
+    const data = await response.json();
+    dispatch(add(data));
+    return response;
+}
+
+
 
 const initialState = {};
 

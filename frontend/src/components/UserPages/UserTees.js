@@ -22,6 +22,7 @@ const MyTees = () => {
     const faves = useSelector(state => state.faves);
     const myFaves = Object.values(faves).filter(fave => fave.userId === sessionUser.id);
     console.log(myFaves);
+    console.log(teeList.find(tee => tee.id === myFaves[0]?.teeId));
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
