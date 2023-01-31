@@ -1,5 +1,6 @@
 const express = require('express');
 const { Fave } = require('../../db/models');
+const { Tee } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
 const router = express.Router();
@@ -17,19 +18,23 @@ router.get('/', requireAuth, async (req, res) => {
 });
 
 // get faves by current user
-// router.get('/current', requireAuth, async (req, res) => {
-//     const userId = req.user.id;
+router.get('/:userId', requireAuth, async (req, res) => {
+    const userId = req.user.id;
 
-//     const faves = await Fave.findAll({
-//         where: {
-//             userId
-//         }
-//     });
+    const faves = await Tee.findAll({
+            include: {
+                model: Fave,
+                where: {
+                    userId
+                }
+            }
+        });
 
-//     return res.json({
-//         Faves: faves
-//     });
-// });
+        console.log("faves backend", faves)
+    return res.json({
+        Faves: faves
+    });
+});
 
 
 // get tee(s) with most faves?

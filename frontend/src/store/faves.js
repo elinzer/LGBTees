@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const GET_FAVES = "faves/GET_FAVES";
 const ADD_FAVE = "faves/ADD_FAVE";
+const GET_FAVES_BY_USER = "faves/GET_FAVES_BY_USER";
 
 const get = (faves) => ({
     type: GET_FAVES,
@@ -13,15 +14,30 @@ const add = (fave) => ({
     payload: fave
 })
 
+const getFavesByUser = (faves) => ({
+    type: GET_FAVES_BY_USER,
+    payload: faves
+})
+
 //get all faves
 export const getAllFaves = () => async (dispatch) => {
-    console.log("did u get here?")
     const response = await csrfFetch('/api/faves');
     const data = await response.json();
-    console.log('data??', data)
     dispatch(get(data));
     return response;
 }
+
+//get faves by current user
+export const getFaves = (userId) => async (dispatch) => {
+
+    const {id} = userId;
+
+    const response = await csrfFetch(`/api/faves/${id}`);
+    const data = await response.json();
+    dispatch(getFavesByUser(data));
+    return response;
+}
+
 
 //add fave
 export const addFave = (info) => async (dispatch) => {
@@ -56,6 +72,11 @@ const favesReducer = (state = initialState, action) => {
                 newState[fave.id] = fave;
             });
             return newState;
+        case GET_FAVES_BY_USER:
+            newState = {...state, currentFaves: {}};
+            action.payload.Faves.forEach(fave => {
+                newState.currentFaves[fave.id] = fave;
+            });
         default:
             return state;
     }

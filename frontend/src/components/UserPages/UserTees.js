@@ -21,11 +21,11 @@ const MyTees = () => {
     const isAdmin = sessionUser.id === 1;
     const faves = useSelector(state => state.faves);
     const myFaves = Object.values(faves).filter(fave => fave.userId === sessionUser.id);
-    console.log(myFaves);
-    console.log(teeList.find(tee => tee.id === myFaves[0]?.teeId));
+    console.log("myFaves", myFaves);
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
+        dispatch(faveActions.getFaves(sessionUser.id));
     }, [dispatch]);
 
     if (myTees.length === 0) {
@@ -38,8 +38,6 @@ const MyTees = () => {
         <div>
             {sessionUser && !isAdmin && (
                 <>
-                    <div>
-                    </div>
                 </>
                    ) }
             {isAdmin && (
