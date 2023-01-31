@@ -19,16 +19,20 @@ const MyTees = () => {
     const [editModalShow, setEditModalShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
     const isAdmin = sessionUser.id === 1;
-    const faves = useSelector(state => state.faves);
-    const myFaves = Object.values(faves).filter(fave => fave.userId === sessionUser.id);
-    console.log("myFaves", myFaves);
+    const myFaves = useSelector(state => state.faves.currentFaves);
+    console.log("favesList", myFaves)
+    const faveList = Object.values(myFaves);
+    // console.log(faveList)
+
+    useEffect(() => {
+        dispatch(faveActions.getFaves(sessionUser.id));
+    }, []);
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
-        dispatch(faveActions.getFaves(sessionUser.id));
     }, [dispatch]);
 
-    if (myTees.length === 0) {
+    if (myFaves.length === 0) {
         return (
             <>
                 <h3>You don't have any tees favorited. Why not fave one?</h3>
@@ -38,6 +42,14 @@ const MyTees = () => {
         <div>
             {sessionUser && !isAdmin && (
                 <>
+                    <h3>My Faves</h3>
+                    <div className='tee-display'>
+                        {faveList?.map(fave => (
+                            <div key={fave.id}>
+                                {fave.name}
+                            </div>
+                        ))}
+                    </div>
                 </>
                    ) }
             {isAdmin && (

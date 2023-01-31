@@ -34,6 +34,7 @@ export const getFaves = (userId) => async (dispatch) => {
 
     const response = await csrfFetch(`/api/faves/${id}`);
     const data = await response.json();
+    
     dispatch(getFavesByUser(data));
     return response;
 }
@@ -73,10 +74,12 @@ const favesReducer = (state = initialState, action) => {
             });
             return newState;
         case GET_FAVES_BY_USER:
-            newState = {...state, currentFaves: {}};
+            newState = {...state};
+            newState.currentFaves = {};
             action.payload.Faves.forEach(fave => {
                 newState.currentFaves[fave.id] = fave;
             });
+            return newState;
         default:
             return state;
     }
