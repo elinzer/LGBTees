@@ -16,8 +16,8 @@ LGBTees is a passion project of mine - I wanted to strengthen my skills and lear
 
 ### How to run locally
 - Clone repo
-- ```cd``` into ```backend``` and run ```npm i``` then ```npm start```
-- In another terminal cd into 'frontend' and run 'npm i' then 'npm start'
+- From the root of the repo, ```cd``` into ```backend``` and run ```npm i``` then ```npm start```
+- In another terminal ```cd``` into ```frontend``` and run ```npm i``` then ```npm start```
 
 ### Feature Screenshots
 Coming soon
