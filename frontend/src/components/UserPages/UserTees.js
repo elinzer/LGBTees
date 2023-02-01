@@ -22,17 +22,14 @@ const MyTees = () => {
     const myFaves = useSelector(state => state.faves.currentFaves);
     console.log("favesList", myFaves)
     const faveList = Object.values(myFaves);
-    // console.log(faveList)
+    console.log(faveList)
 
-    useEffect(() => {
-        dispatch(faveActions.getFaves(sessionUser.id));
-    }, []);
 
     useEffect(() => {
         dispatch(teeActions.getAllTees());
     }, [dispatch]);
 
-    if (myFaves.length === 0) {
+    if (faveList.length === 0) {
         return (
             <>
                 <h3>You don't have any tees favorited. Why not fave one?</h3>
