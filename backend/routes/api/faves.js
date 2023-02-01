@@ -1,5 +1,6 @@
 const express = require('express');
 const { Fave } = require('../../db/models');
+const { Tee } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
 const router = express.Router();
@@ -16,9 +17,43 @@ router.get('/', requireAuth, async (req, res) => {
 
 });
 
-// get faves by user id
+// get faves by current user
+router.get('/:userId', requireAuth, async (req, res) => {
+    const userId = req.user.id;
+
+    const faves = await Tee.findAll({
+            include: {
+                model: Fave,
+                where: {
+                    userId
+                }
+            }
+        });
+
+        console.log("faves backend", faves)
+    return res.json({
+        Faves: faves
+    });
+});
 
 
 // get tee(s) with most faves?
+
+// add fave
+router.post('/', requireAuth, async (req, res) => {
+    const { teeId } = req.body;
+    const userId = req.user.id;
+
+    const fave = await Fave.create({
+        teeId,
+        userId
+    });
+
+    return res.json({
+        fave
+    });
+});
+
+
 
 module.exports = router;

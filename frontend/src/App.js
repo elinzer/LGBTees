@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import LoginFormPage from './components/Login';
 import SignupFormPage from './components/Signup';
@@ -16,11 +16,18 @@ import About from './components/About';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(teeActions.getAllTees());
-    dispatch(faveActions.getAllFaves());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (sessionUser) {
+      dispatch(faveActions.getFaves(sessionUser.id));
+    }
+  }, [dispatch, sessionUser]);
 
 
   return (
@@ -41,7 +48,7 @@ function App() {
         <Tees />
       </Route>
       <Route path="/my-faves">
-        <MyTees />
+          <MyTees />
       </Route>
       <Route>
         <About />
