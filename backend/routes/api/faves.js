@@ -30,7 +30,6 @@ router.get('/:userId', requireAuth, async (req, res) => {
             }
         });
 
-        console.log("faves backend", faves)
     return res.json({
         Faves: faves
     });
