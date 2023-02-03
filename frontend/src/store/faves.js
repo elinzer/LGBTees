@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_FAVES = "faves/GET_FAVES";
 const ADD_FAVE = "faves/ADD_FAVE";
 const GET_FAVES_BY_USER = "faves/GET_FAVES_BY_USER";
+const REMOVE_FAVE = "faves/REMOVE_FAVE";
 
 const get = (faves) => ({
     type: GET_FAVES,
@@ -41,9 +42,7 @@ export const getFaves = (userId) => async (dispatch) => {
 
 
 //add fave
-export const addFave = (info) => async (dispatch) => {
-
-    const {teeId, userId} = info;
+export const addFave = (teeId, userId) => async (dispatch) => {
 
     const response = await csrfFetch('/api/faves', {
         method: 'POST',

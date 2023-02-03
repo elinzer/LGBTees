@@ -53,6 +53,25 @@ router.post('/', requireAuth, async (req, res) => {
     });
 });
 
+// delete fave
+router.delete('/:id', requireAuth, async (req, res) => {
+
+    const { teeId, userId } = req.body;
+
+    const fave = await Fave.findOne({
+        where: {
+            teeId,
+            userId
+        }
+    });
+
+    await fave.destroy();
+
+    return res.json({
+        message: 'Fave deleted'
+    });
+});
+
 
 
 module.exports = router;

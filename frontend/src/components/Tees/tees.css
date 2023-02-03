@@ -58,3 +58,7 @@
     cursor: pointer;
     color: black;
 }
+
+.filled {
+    color: palevioletred !important;
+}
