@@ -58,17 +58,16 @@ router.delete('/:id', requireAuth, async (req, res) => {
 
     const { teeId, userId } = req.body;
 
-    const fave = await Fave.findOne({
+    await Fave.destroy({
         where: {
             teeId,
             userId
         }
     });
 
-    await fave.destroy();
 
     return res.json({
-        message: 'Fave deleted'
+        message: 'Fave(s) deleted'
     });
 });
 

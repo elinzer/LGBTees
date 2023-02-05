@@ -35,7 +35,7 @@ const Tees = () => {
                 {teeList.map((tee) => (
                     <div key={tee.id} className='tee-card'>
                         {sessionUser && (
-                            <div className='fave-heart'><i className={isClicked ? "fa-regular fa-heart filled" : "fa-regular fa-heart notfilled"} onClick={(e) => addOrRemoveFave(tee.id)}></i></div>
+                            <div className='fave-heart'><i className={isClicked ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"} onClick={(e) => addOrRemoveFave(tee.id)}></i></div>
                             )}
                         <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
                         <div>
