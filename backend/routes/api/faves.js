@@ -30,7 +30,6 @@ router.get('/:userId', requireAuth, async (req, res) => {
             }
         });
 
-        console.log("faves backend", faves)
     return res.json({
         Faves: faves
     });
@@ -51,6 +50,24 @@ router.post('/', requireAuth, async (req, res) => {
 
     return res.json({
         fave
+    });
+});
+
+// delete fave
+router.delete('/', requireAuth, async (req, res) => {
+
+    const { teeId, userId } = req.body;
+
+    await Fave.destroy({
+        where: {
+            teeId,
+            userId
+        }
+    });
+
+
+    return res.json({
+        message: 'Fave(s) deleted'
     });
 });
 

@@ -10,7 +10,7 @@ const SearchBar = () => {
                 <Form.Control
                     type='search'
                     style={{width: '50%'}}
-                    placeholder='Search feature coming soon!'
+                    placeholder='Search coming soon!'
                     aria-label='Search'
                     disabled={true}
                 />

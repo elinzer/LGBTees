@@ -1,15 +1,35 @@
 import Image from 'react-bootstrap/Image';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import SearchBar from '../SearchBar';
+import * as faveActions from '../../store/faves';
 import './tees.css'
 
 const Tees = () => {
 
     const tees = useSelector(state => state.tees);
     const teeList = Object.values(tees);
+    const sessionUser = useSelector(state => state.session.user);
+    const currentFaves = useSelector(state => state.faves.currentFaves);
+    const currentFavesList = Object.values(currentFaves);
+    console.log(currentFavesList);
+    const dispatch = useDispatch();
 
+    const [isClicked, setIsClicked] = useState(false);
+
+    const filledClass = isClicked ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled";
+
+    const addOrRemoveFave = (id) => {
+        setIsClicked(!isClicked);
+
+        if (isClicked) {
+            dispatch(faveActions.addFave(id, sessionUser.id))
+        } else {
+            dispatch(faveActions.removeFave(id, sessionUser.id));
+        }
+    }
 
 
     return (
@@ -18,7 +38,11 @@ const Tees = () => {
             <div className='tee-display'>
                 {teeList.map((tee) => (
                     <div key={tee.id} className='tee-card'>
-                        <div className='fave-heart'><i class="fa-regular fa-heart"></i></div>
+                        {sessionUser && (
+                            <div className='fave-heart'><i className="fa-regular fa-heart notfilled"
+
+                            onClick={(e) => {e.target.className = filledClass; addOrRemoveFave(tee.id)}}></i></div>
+                            )}
                         <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
                         <div>
                             <OverlayTrigger

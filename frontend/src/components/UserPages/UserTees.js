@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Image from "react-bootstrap/esm/Image";
+import Overlay from "react-bootstrap/esm/Overlay";
+import OverlayTrigger from "react-bootstrap/esm/OverlayTrigger";
+import Tooltip from "react-bootstrap/esm/Tooltip";
 import Button from "react-bootstrap/esm/Button";
 import '../Tees/tees.css'
 import EditTee from "../Modals/EditTee";
@@ -20,9 +23,7 @@ const MyTees = () => {
     const [modalShow, setModalShow] = useState(false);
     const isAdmin = sessionUser.id === 1;
     const myFaves = useSelector(state => state.faves.currentFaves);
-    console.log("favesList", myFaves)
     const faveList = Object.values(myFaves);
-    console.log(faveList)
 
 
     useEffect(() => {
@@ -42,29 +43,54 @@ const MyTees = () => {
                     <h3>My Faves</h3>
                     <div className='tee-display'>
                         {faveList?.map(fave => (
-                            <div key={fave.id}>
-                                {fave.name}
+                            <div key={fave.id} className='tee-card'>
+                                <Image src={fave.imageUrl} alt={fave.name} className='tee-img' fluid />
+                                <div>
+                                    <OverlayTrigger
+                                        key='top'
+                                        placement='top'
+                                        overlay={
+                                            <Tooltip id={`tooltip-top`}>
+                                                Click to buy from {fave.brand}!
+                                            </Tooltip>
+                                        }>
+                                        <a href={fave.url} target='_blank' className='tee-link'>{fave.name}</a>
+                                    </OverlayTrigger>
+                                </div>
+                                <div className='tee-brand'>
+                                    <OverlayTrigger
+                                        key='bottom'
+                                        placement='bottom'
+                                        overlay={
+                                            <Tooltip id={`tooltip-bottom`}>
+                                                Click to visit {fave.brand}!
+                                            </Tooltip>
+                                        }>
+                                        <a href={fave.brandUrl}>{fave.brand}</a>
+                                    </OverlayTrigger>
+                                </div>
+                                <div>${fave.price}</div>
                             </div>
                         ))}
                     </div>
                 </>
-                   ) }
+            )}
             {isAdmin && (
-            <>
-            <Button onClick={() => setModalShow(true)}>Add A Tee</Button>
-            <AddTee show={modalShow} onHide={() => setModalShow(false)} />
-            <div className='tee-display'>
-                {myTees.map(tee => (
-                    <div key={tee.id}>
-                        <Image src={tee.imageUrl} alt={tee.name} className='tee-img' />
-                        <div>{tee.name}</div>
-                        <div>{tee.brand}</div>
-                        <div>{tee.price}</div>
-                        <Button onClick={() => setEditModalShow(true)}>Edit Tee</Button>
-                        <EditTee show={editModalShow} tee={tee} onHide={() => setEditModalShow(false)} />
+                <>
+                    <Button onClick={() => setModalShow(true)}>Add A Tee</Button>
+                    <AddTee show={modalShow} onHide={() => setModalShow(false)} />
+                    <div className='tee-display'>
+                        {myTees.map(tee => (
+                            <div key={tee.id}>
+                                <Image src={tee.imageUrl} alt={tee.name} className='tee-img' />
+                                <div>{tee.name}</div>
+                                <div>{tee.brand}</div>
+                                <div>{tee.price}</div>
+                                <Button onClick={() => setEditModalShow(true)}>Edit Tee</Button>
+                                <EditTee show={editModalShow} tee={tee} onHide={() => setEditModalShow(false)} />
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
                 </>)}
         </div>
     )

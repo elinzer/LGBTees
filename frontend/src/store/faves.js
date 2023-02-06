@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_FAVES = "faves/GET_FAVES";
 const ADD_FAVE = "faves/ADD_FAVE";
 const GET_FAVES_BY_USER = "faves/GET_FAVES_BY_USER";
+const REMOVE_FAVE = "faves/REMOVE_FAVE";
 
 const get = (faves) => ({
     type: GET_FAVES,
@@ -17,6 +18,11 @@ const add = (fave) => ({
 const getFavesByUser = (faves) => ({
     type: GET_FAVES_BY_USER,
     payload: faves
+})
+
+const remove = (fave) => ({
+    type: REMOVE_FAVE,
+    payload: fave
 })
 
 //get all faves
@@ -41,9 +47,7 @@ export const getFaves = (userId) => async (dispatch) => {
 
 
 //add fave
-export const addFave = (info) => async (dispatch) => {
-
-    const {teeId, userId} = info;
+export const addFave = (teeId, userId) => async (dispatch) => {
 
     const response = await csrfFetch('/api/faves', {
         method: 'POST',
@@ -60,6 +64,23 @@ export const addFave = (info) => async (dispatch) => {
     return response;
 }
 
+//remove fave
+export const removeFave = (teeId, userId) => async (dispatch) => {
+
+    const response = await csrfFetch('/api/faves', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            teeId,
+            userId
+        })
+    });
+    const data = await response.json();
+    dispatch(remove(data));
+    return response;
+}
 
 
 const initialState = {
@@ -81,6 +102,10 @@ const favesReducer = (state = initialState, action) => {
             action.payload.Faves.forEach(fave => {
                 newState.currentFaves[fave.id] = fave;
             });
+            return newState;
+        case REMOVE_FAVE:
+            newState = {...state};
+            delete newState.currentFaves[action.payload.id];
             return newState;
         default:
             return state;
