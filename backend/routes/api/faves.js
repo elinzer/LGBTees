@@ -54,7 +54,7 @@ router.post('/', requireAuth, async (req, res) => {
 });
 
 // delete fave
-router.delete('/:id', requireAuth, async (req, res) => {
+router.delete('/', requireAuth, async (req, res) => {
 
     const { teeId, userId } = req.body;
 

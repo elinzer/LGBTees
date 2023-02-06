@@ -16,14 +16,15 @@ const Tees = () => {
 
     const [isClicked, setIsClicked] = useState(false);
 
-    const addOrRemoveFave = (id) => {
+    const filledClass = isClicked ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled";
 
+    const addOrRemoveFave = (id) => {
         setIsClicked(!isClicked);
 
-        if (!isClicked) {
+        if (isClicked) {
             dispatch(faveActions.addFave(id, sessionUser.id))
         } else {
-            console.log('remove fave');
+            dispatch(faveActions.removeFave(id, sessionUser.id));
         }
     }
 
@@ -35,7 +36,9 @@ const Tees = () => {
                 {teeList.map((tee) => (
                     <div key={tee.id} className='tee-card'>
                         {sessionUser && (
-                            <div className='fave-heart'><i className={isClicked ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"} onClick={(e) => addOrRemoveFave(tee.id)}></i></div>
+                            <div className='fave-heart'><i className="fa-regular fa-heart notfilled"
+
+                            onClick={(e) => {e.target.className = filledClass; addOrRemoveFave(tee.id)}}></i></div>
                             )}
                         <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
                         <div>
