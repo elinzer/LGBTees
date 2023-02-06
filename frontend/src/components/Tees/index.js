@@ -12,6 +12,9 @@ const Tees = () => {
     const tees = useSelector(state => state.tees);
     const teeList = Object.values(tees);
     const sessionUser = useSelector(state => state.session.user);
+    const currentFaves = useSelector(state => state.faves.currentFaves);
+    const currentFavesList = Object.values(currentFaves);
+    console.log(currentFavesList);
     const dispatch = useDispatch();
 
     const [isClicked, setIsClicked] = useState(false);
