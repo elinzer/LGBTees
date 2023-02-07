@@ -1,7 +1,7 @@
 import Image from 'react-bootstrap/Image';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SearchBar from '../SearchBar';
 import * as faveActions from '../../store/faves';
@@ -14,20 +14,15 @@ const Tees = () => {
     const sessionUser = useSelector(state => state.session.user);
     const currentFaves = useSelector(state => state.faves.currentFaves);
     const currentFavesList = Object.values(currentFaves);
-    console.log(currentFavesList);
+
     const dispatch = useDispatch();
 
-    const [isClicked, setIsClicked] = useState(false);
 
-    const filledClass = isClicked ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled";
-
-    const addOrRemoveFave = (id) => {
-        setIsClicked(!isClicked);
-
-        if (isClicked) {
-            dispatch(faveActions.addFave(id, sessionUser.id))
+    const addOrRemoveFave = (tee) => {
+        if (currentFavesList.some(currFave => currFave.id === tee.id)) {
+            dispatch(faveActions.removeFave(tee.id, sessionUser.id));
         } else {
-            dispatch(faveActions.removeFave(id, sessionUser.id));
+            dispatch(faveActions.addFave(tee.id, sessionUser.id));
         }
     }
 
@@ -39,9 +34,8 @@ const Tees = () => {
                 {teeList.map((tee) => (
                     <div key={tee.id} className='tee-card'>
                         {sessionUser && (
-                            <div className='fave-heart'><i className="fa-regular fa-heart notfilled"
-
-                            onClick={(e) => {e.target.className = filledClass; addOrRemoveFave(tee.id)}}></i></div>
+                            <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
+                            onClick={(e) => {addOrRemoveFave(tee)}}></i></div>
                             )}
                         <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
                         <div>
