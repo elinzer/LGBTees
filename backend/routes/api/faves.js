@@ -48,8 +48,10 @@ router.post('/', requireAuth, async (req, res) => {
         userId
     });
 
+    const tee = await Tee.findByPk(teeId);
+
     return res.json({
-        fave
+        tee
     });
 });
 
