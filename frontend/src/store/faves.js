@@ -10,9 +10,9 @@ const get = (faves) => ({
     payload: faves
 })
 
-const add = (fave) => ({
+const add = (data) => ({
     type: ADD_FAVE,
-    payload: fave
+    payload: data.tee
 })
 
 const getFavesByUser = (faves) => ({
@@ -78,7 +78,7 @@ export const removeFave = (teeId, userId) => async (dispatch) => {
         })
     });
     const data = await response.json();
-    dispatch(remove(data));
+    dispatch(remove(teeId));
     return response;
 }
 
@@ -97,15 +97,19 @@ const favesReducer = (state = initialState, action) => {
             });
             return newState;
         case GET_FAVES_BY_USER:
-            newState = {...state};
+            newState = {...state, currentFaves: {...state.currentFaves}};
             newState.currentFaves = {};
             action.payload.Faves.forEach(fave => {
                 newState.currentFaves[fave.id] = fave;
             });
             return newState;
+        case ADD_FAVE:
+            newState = {...state, currentFaves: {...state.currentFaves}};
+            newState.currentFaves[action.payload.id] = action.payload;
+            return newState;
         case REMOVE_FAVE:
-            newState = {...state};
-            delete newState.currentFaves[action.payload.id];
+            newState = {...state, currentFaves: {...state.currentFaves}};
+            delete newState.currentFaves[action.payload];
             return newState;
         default:
             return state;
