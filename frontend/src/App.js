@@ -6,6 +6,7 @@ import SignupFormPage from './components/Signup';
 import Tees from './components/Tees';
 import MyTees from './components/UserPages/UserTees';
 import Navigation from './components/Nav';
+import Footer from './components/Footer';
 import Splash from './components/Splash';
 import * as sessionActions from './store/session';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -55,6 +56,7 @@ function App() {
       </Route>
     </Switch>
       )}
+      <Footer />
     </>
   );
 }
