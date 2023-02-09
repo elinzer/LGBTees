@@ -1,25 +1,72 @@
 import Image from 'react-bootstrap/Image';
-import { useSelector } from 'react-redux';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import SearchBar from '../SearchBar';
+import * as faveActions from '../../store/faves';
 import './tees.css'
 
 const Tees = () => {
 
     const tees = useSelector(state => state.tees);
     const teeList = Object.values(tees);
+    const sessionUser = useSelector(state => state.session.user);
+    const currentFaves = useSelector(state => state.faves.currentFaves);
+    const currentFavesList = Object.values(currentFaves);
 
+    const dispatch = useDispatch();
+
+
+    const addOrRemoveFave = (tee) => {
+        if (currentFavesList.some(currFave => currFave.id === tee.id)) {
+            dispatch(faveActions.removeFave(tee.id, sessionUser.id));
+        } else {
+            dispatch(faveActions.addFave(tee.id, sessionUser.id));
+        }
+    }
 
 
     return (
-        <div className='tee-display'>
-            {teeList.map((tee) => (
-                <div key={tee.id} className='tee-card'>
-                    <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
-                    <div><a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a></div>
-                    <div className='tee-brand'>{tee.brand}</div>
-                    <div>${tee.price}</div>
-                </div>
+        <div>
+            <SearchBar />
+            <div className='tee-display'>
+                {teeList.map((tee) => (
+                    <div key={tee.id} className='tee-card'>
+                        {sessionUser && (
+                            <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
+                            onClick={(e) => {addOrRemoveFave(tee)}}></i></div>
+                            )}
+                        <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
+                        <div>
+                            <OverlayTrigger
+                                key='top'
+                                placement='top'
+                                overlay={
+                                    <Tooltip id={`tooltip-top`}>
+                                        Click to buy from {tee.brand}!
+                                    </Tooltip>
+                                }>
+                                <a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a>
+                            </OverlayTrigger>
+                        </div>
+                        <div className='tee-brand'>
+                            <OverlayTrigger
+                                key='bottom'
+                                placement='bottom'
+                                overlay={
+                                    <Tooltip id={`tooltip-bottom`}>
+                                        Click to visit {tee.brand}!
+                                    </Tooltip>
+                                }>
+                                <a href={tee.brandUrl}>{tee.brand}</a>
+                            </OverlayTrigger>
+                        </div>
+                        <div>${tee.price}</div>
+                    </div>
                 )
-            )}
+                )}
+            </div>
         </div>
     )
 }
