@@ -3,6 +3,16 @@
     max-width: 400px;
     padding: 15px;
     margin: 0 auto;
+    height: 90vh;
+}
+
+.signup-form > ul {
+    list-style: none;
+}
+
+.signup-form > ul > li {
+    color: red;
+    font-style: italic;
 }
 
 .signup-button {
