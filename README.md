@@ -16,9 +16,21 @@ LGBTees is a passion project of mine - I wanted to strengthen my skills and lear
 - <a href='https://github.com/elinzer/LGBTees/wiki/API-Routes'>API Routes</a>
 
 ### How to run locally
-- Clone repo
+- Clone this repo
 - From the root of the repo, ```cd``` into ```backend``` and run ```npm i``` then ```npm start```
-- In another terminal ```cd``` into ```frontend``` and run ```npm i``` then ```npm start```
+- Inside ```/backend```, create a ```.env``` file and choose a port number and a database file (to view in your browser and have a local db):
+
+``` 
+   PORT=
+   DB_FILE= 
+   ```
+- Still in ```/backend```, run the following commands to build the database and seed it with starter data:
+```
+npx dotenv sequelize db:create
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all
+```
+- Finally, run ```npm start``` in ```/backend``` first and then in the ```/frontend``` terminal to start the backend and frontend servers!
 
 ### Feature Screenshots
 Coming soon
