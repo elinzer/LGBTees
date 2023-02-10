@@ -12,7 +12,8 @@ LGBTees is a passion project of mine - I wanted to strengthen my skills and lear
 
 ### Wiki Links
 - <a href='https://github.com/elinzer/LGBTees/wiki/DB-Schema'>DB Schema</a>
-- More coming soon
+- <a href='https://github.com/elinzer/LGBTees/wiki/Feature-List'>Feature List</a>
+- <a href='https://github.com/elinzer/LGBTees/wiki/API-Routes'>API Routes</a>
 
 ### How to run locally
 - Clone repo
