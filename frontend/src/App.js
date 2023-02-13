@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as teeActions from './store/tee';
 import * as faveActions from './store/faves';
 import About from './components/About';
+import SingleTee from './components/Tees/SingleTee';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,10 @@ function App() {
       <Route path="/tees">
         <Tees />
       </Route>
+      <Route path="/single-tee/:id">
+        <SingleTee />
+      </Route>
+        <SingleTee />
       <Route path="/my-faves">
           <MyTees />
       </Route>
