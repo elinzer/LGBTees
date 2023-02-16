@@ -52,11 +52,10 @@ function App() {
       <Route path="/single-tee/:id">
         <SingleTee />
       </Route>
-        <SingleTee />
       <Route path="/my-faves">
           <MyTees />
       </Route>
-      <Route>
+      <Route path="/about">
         <About />
       </Route>
     </Switch>

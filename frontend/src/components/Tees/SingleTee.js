@@ -10,7 +10,13 @@ const SingleTee = () => {
     const teeList = Object.values(tees);
     const tee = teeList.find(tee => tee.id == id);
 
-
+    if (!tee) {
+        return (
+            <>
+                <h1>Sorry, this tee does not exist!</h1>
+            </>
+        )
+    }
 
     return (
         <div>
