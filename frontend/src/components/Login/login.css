@@ -3,6 +3,16 @@
     max-width: 400px;
     padding: 15px;
     margin: 0 auto;
+    height: 90vh;
+}
+
+.login-form > ul {
+    list-style: none;
+}
+
+.login-form > ul > li {
+    color: red;
+    font-style: italic;
 }
 
 .login-button {
