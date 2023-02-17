@@ -49,9 +49,9 @@ function App() {
       <Route path="/tees">
         <Tees />
       </Route>
-      <Route path="/single-tee/:id">
+      {/* <Route path="/single-tee/:id">
         <SingleTee />
-      </Route>
+      </Route> */}
       <Route path="/my-faves">
           <MyTees />
       </Route>
