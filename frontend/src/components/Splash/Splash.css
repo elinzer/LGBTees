@@ -1,0 +1,8 @@
+.lgbt-splash {
+    background: -webkit-linear-gradient(rgba(255, 0, 0, 1) 15%,
+    rgba(255, 255, 0, 1) 33%,
+    rgba(0, 192, 255, 1) 66%,
+    rgba(192, 0, 255, 1) 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

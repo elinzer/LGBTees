@@ -9,7 +9,7 @@ import lgbtLogo from '../../imgs/lgbteeLogo.png';
 import './nav.css'
 
 function Navigation({ isLoaded }) {
-  console.log(window.location.href.endsWith('/login'))
+  
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -19,6 +19,12 @@ function Navigation({ isLoaded }) {
     dispatch(sessionActions.logout());
     history.push('/');
   };
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.login({ credential: 'DemoUser', password: 'password' }));
+    history.push('/');
+  }
 
   return (
     <Navbar variant='light' bg="light" expand="sm">
@@ -36,13 +42,16 @@ function Navigation({ isLoaded }) {
       <Nav>
         {isLoaded && !sessionUser && (
           <>
+          <Nav.Link onClick={demoLogin}>Demo User</Nav.Link>
          {!window.location.href.endsWith('login') && (<Nav.Link href="/login">Log In</Nav.Link>)}
           {!window.location.href.endsWith('/signup') && (<Nav.Link href="/signup">Sign Up</Nav.Link>)}
           </>
         )}
         {isLoaded && sessionUser && (
           <Container className='ms-auto'>
-          <NavDropdown title="Profile" id="basic-nav-dropdown">
+          <NavDropdown title="Profile" id="basic-nav-dropdown"
+          drop='start'
+          className='profile-drop'>
             {/* <NavDropdown.Item href="/my-tees">My Tees</NavDropdown.Item> */}
             <NavDropdown.Item href="/my-faves">
               My Faves
