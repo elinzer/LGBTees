@@ -62,7 +62,7 @@ const Tees = () => {
                                         Click to visit {tee.brand}!
                                     </Tooltip>
                                 }>
-                                <a href={tee.brandUrl}>{tee.brand}</a>
+                                <a href={tee.brandUrl} target='_blank'>{tee.brand}</a>
                             </OverlayTrigger>
                         </div>
                         <div>${tee.price}</div>
