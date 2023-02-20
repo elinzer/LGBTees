@@ -1,5 +1,11 @@
 .fave-container {
     height: 90vh;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.fave-container > h3 {
+    justify-self: center;
+    align-self: center;
 }

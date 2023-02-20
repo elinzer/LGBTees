@@ -31,6 +31,14 @@ const MyTees = () => {
         dispatch(teeActions.getAllTees());
     }, [dispatch]);
 
+    const addOrRemoveFave = (tee) => {
+        if (faveList.some(currFave => currFave.id === tee.id)) {
+            dispatch(faveActions.removeFave(tee.id, sessionUser.id));
+        } else {
+            dispatch(faveActions.addFave(tee.id, sessionUser.id));
+        }
+    }
+
     if (!sessionUser) {
         return (
             <Redirect to='/' />
@@ -45,10 +53,12 @@ const MyTees = () => {
         <div>
             {sessionUser && !isAdmin && (
                 <div className="fave-container">
-                    <h3>My Faves</h3>
+                    <h3>My Faves ❤️</h3>
                     <div className='tee-display'>
                         {faveList?.map(fave => (
                             <div key={fave.id} className='tee-card'>
+                                <div className='fave-heart'><i className={faveList.some(currFave => currFave.id === fave.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
+                            onClick={(e) => {addOrRemoveFave(fave)}}></i></div>
                                 <Image src={fave.imageUrl} alt={fave.name} className='tee-img' fluid />
                                 <div>
                                     <OverlayTrigger
@@ -71,7 +81,7 @@ const MyTees = () => {
                                                 Click to visit {fave.brand}!
                                             </Tooltip>
                                         }>
-                                        <a href={fave.brandUrl}>{fave.brand}</a>
+                                        <a href={fave.brandUrl} target='_blank'>{fave.brand}</a>
                                     </OverlayTrigger>
                                 </div>
                                 <div>${fave.price}</div>
