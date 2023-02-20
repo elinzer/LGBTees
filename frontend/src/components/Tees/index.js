@@ -1,9 +1,10 @@
 import Image from 'react-bootstrap/Image';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import SearchBar from '../SearchBar';
+import SingleTee from './SingleTee';
 import * as faveActions from '../../store/faves';
 import './tees.css'
 
@@ -37,7 +38,9 @@ const Tees = () => {
                             <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
                             onClick={(e) => {addOrRemoveFave(tee)}}></i></div>
                             )}
-                        <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
+                        {/* <NavLink to={`/single-tee/${tee.id}`}> */}
+                            <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
+                            {/* </NavLink> */}
                         <div>
                             <OverlayTrigger
                                 key='top'

@@ -1,0 +1,22 @@
+.indv-tee {
+    display: flex;
+    border: 1px solid red;
+    flex-direction: row;
+}
+
+.tee-pic {
+    width: 40%;
+    border: 1px solid blue;
+}
+
+.tee-info {
+    width: 60%;
+    border: 1px solid green;
+    align-self: flex-end;
+
+}
+
+.reviews {
+    border: 1px solid black;
+    align-self: center;
+}

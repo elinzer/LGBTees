@@ -20,7 +20,7 @@ router.get('/', requireAuth, async (req, res) => {
 // get faves by current user
 router.get('/:userId', requireAuth, async (req, res) => {
     const userId = req.user.id;
-
+    
     const faves = await Tee.findAll({
             include: {
                 model: Fave,
