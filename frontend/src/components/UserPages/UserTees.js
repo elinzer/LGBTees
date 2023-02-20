@@ -31,7 +31,11 @@ const MyTees = () => {
         dispatch(teeActions.getAllTees());
     }, [dispatch]);
 
-    if (faveList.length === 0) {
+    if (!sessionUser) {
+        return (
+            <Redirect to='/' />
+        )
+    } else if (faveList.length === 0) {
         return (
             <div className="fave-container">
                 <h3>You don't have any tees favorited. Why not fave one?</h3>
