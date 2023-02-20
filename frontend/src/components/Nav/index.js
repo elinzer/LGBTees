@@ -9,7 +9,7 @@ import lgbtLogo from '../../imgs/lgbteeLogo.png';
 import './nav.css'
 
 function Navigation({ isLoaded }) {
-  console.log(window.location.href.endsWith('/login'))
+  
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();

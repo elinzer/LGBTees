@@ -36,9 +36,8 @@ export const getAllFaves = () => async (dispatch) => {
 //get faves by current user
 export const getFaves = (userId) => async (dispatch) => {
 
-    const {id} = userId;
 
-    const response = await csrfFetch(`/api/faves/${id}`);
+    const response = await csrfFetch(`/api/faves/${userId}`);
     const data = await response.json();
 
     dispatch(getFavesByUser(data));

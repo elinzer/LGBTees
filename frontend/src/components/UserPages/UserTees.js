@@ -11,6 +11,7 @@ import EditTee from "../Modals/EditTee";
 import AddTee from "../Modals/AddTee";
 import * as teeActions from "../../store/tee.js"
 import * as faveActions from "../../store/faves.js"
+import "./UserTee.css"
 
 const MyTees = () => {
 
@@ -30,16 +31,20 @@ const MyTees = () => {
         dispatch(teeActions.getAllTees());
     }, [dispatch]);
 
-    if (faveList.length === 0) {
+    if (!sessionUser) {
         return (
-            <>
+            <Redirect to='/' />
+        )
+    } else if (faveList.length === 0) {
+        return (
+            <div className="fave-container">
                 <h3>You don't have any tees favorited. Why not fave one?</h3>
-            </>
+            </div>
         )
     } else return (
         <div>
             {sessionUser && !isAdmin && (
-                <>
+                <div className="fave-container">
                     <h3>My Faves</h3>
                     <div className='tee-display'>
                         {faveList?.map(fave => (
@@ -73,7 +78,7 @@ const MyTees = () => {
                             </div>
                         ))}
                     </div>
-                </>
+                </div>
             )}
             {isAdmin && (
                 <>

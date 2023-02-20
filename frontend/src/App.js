@@ -49,14 +49,13 @@ function App() {
       <Route path="/tees">
         <Tees />
       </Route>
-      <Route path="/single-tee/:id">
+      {/* <Route path="/single-tee/:id">
         <SingleTee />
-      </Route>
-        <SingleTee />
+      </Route> */}
       <Route path="/my-faves">
           <MyTees />
       </Route>
-      <Route>
+      <Route path="/about">
         <About />
       </Route>
     </Switch>
