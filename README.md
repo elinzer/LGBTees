@@ -42,3 +42,7 @@ npx dotenv sequelize db:seed:all
 
 ### Tees while logged in
 <img width="1412" alt="Screen Shot 2023-02-20 at 8 54 53 AM" src="https://user-images.githubusercontent.com/101808290/220140246-c6de898f-c913-46b4-84b9-dadff33e73f7.png">
+
+### Faves
+<img width="816" alt="Screen Shot 2023-02-20 at 9 27 08 AM" src="https://user-images.githubusercontent.com/101808290/220146453-4e5f0d23-8f3c-4d3d-ab8a-66f1d199a3c5.png">
+
