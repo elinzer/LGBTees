@@ -1,6 +1,6 @@
 # LGBTees
 
-LGBTees is a passion project of mine - I wanted to strengthen my skills and learn new ones, all while highlighting some awesome threads from LGBTQ+ businesses. <a href='https://lgbtees.herokuapp.com/>'Live site here!</a>
+LGBTees is a passion project of mine - I wanted to strengthen my skills and learn new ones, all while highlighting some awesome threads from LGBTQ+ businesses. <a href='https://lgbtees.herokuapp.com'/>Live site here!</a>
 
 ## Built with:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
