@@ -22,15 +22,17 @@ const SingleTee = () => {
     return (
         <div>
             <div className="indv-tee">
-            <h1>{tee.name}</h1>
-            <Image className="tee-pic" src={tee.imageUrl} alt={tee.name} fluid />
-            <div className="tee-info">
-                <h3>Price: ${tee.price}</h3>
-                <h3>Brand: {tee.brand}</h3>
-            </div>
-            <div className="reviews">
-                <h3>Reviews coming soon!</h3>
-            </div>
+                <div className="tee-n-title">
+                    <h3>{tee.name}</h3>
+                    <Image className="tee-pic" src={tee.imageUrl} alt={tee.name} fluid />
+                </div>
+                <div className="tee-info">
+                    <h3>Price: ${tee.price}</h3>
+                    <h3>Brand: {tee.brand}</h3>
+                </div>
+                <div className="reviews">
+                    <h3>Reviews coming soon!</h3>
+                </div>
             </div>
         </div>
     )
