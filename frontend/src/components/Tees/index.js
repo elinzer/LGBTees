@@ -38,9 +38,9 @@ const Tees = () => {
                             <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
                             onClick={(e) => {addOrRemoveFave(tee)}}></i></div>
                             )}
-                        {/* <NavLink to={`/single-tee/${tee.id}`}> */}
+                        <NavLink to={`/tee/${tee.id}`}>
                             <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
-                            {/* </NavLink> */}
+                            </NavLink>
                         <div>
                             <OverlayTrigger
                                 key='top'
