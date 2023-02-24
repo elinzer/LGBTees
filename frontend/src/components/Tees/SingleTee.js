@@ -27,8 +27,8 @@ const SingleTee = () => {
                     <Image className="tee-pic" src={tee.imageUrl} alt={tee.name} fluid />
                 </div>
                 <div className="tee-info">
-                    <h3>Price: ${tee.price}</h3>
-                    <h3>Brand: {tee.brand}</h3>
+                    <h4>Price: ${tee.price}</h4>
+                    <h4>Brand: {tee.brand}</h4>
                 </div>
                 <div className="reviews">
                     <h3>Reviews coming soon!</h3>
