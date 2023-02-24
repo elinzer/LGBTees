@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Image from "react-bootstrap/Image";
+import Reviews from "../Reviews";
 import './SingleTee.css'
 
 
@@ -31,7 +32,7 @@ const SingleTee = () => {
                     <h4>Brand: {tee.brand}</h4>
                 </div>
                 <div className="reviews">
-                    <h3>Reviews coming soon!</h3>
+                    <Reviews teeId={tee.id} />
                 </div>
             </div>
         </div>
