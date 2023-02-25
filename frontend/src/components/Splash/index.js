@@ -2,6 +2,8 @@ import PicCarousel from "./Carousel";
 import "./Splash.css";
 
 const Splash = () => {
+
+    //dummy edit
     return (
         <div>
             <header class="bg-dark py-5">
