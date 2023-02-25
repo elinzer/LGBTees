@@ -29,15 +29,15 @@ const Splash = () => {
                         <div class="col-xl-8">
                             <h2 class="fs-4 mb-4">Don't need a shirt but still want to support your LGBTQ fam? Donate directly to one of these orgs doing critical work for the community!</h2>
                             <div class="mb-4">
-                                <a class="link-dark" href="https://transgenderlawcenter.org/about" target={"_blank"}><h4>Transgender Law Center</h4></a>
+                                <a class="link-dark" href="https://transgenderlawcenter.org/about" target={"_blank"} rel='noreferrer'><h4>Transgender Law Center</h4></a>
                                 <div class='fs-5'>The largest national trans-led organization advocating for a world in which all people are free to define themselves and their futures.</div>
                             </div>
                             <div class="mb-4">
-                                <a class="link-dark" href="https://bravespacealliance.org/who-we-are/mission-values/" target={"_blank"}><h4>Brave Space Alliance</h4></a>
+                                <a class="link-dark" href="https://bravespacealliance.org/who-we-are/mission-values/" target={"_blank"} rel='noreferrer'><h4>Brave Space Alliance</h4></a>
                                 <div class='fs-5'>The first Black-led, trans-led LGBTQ+ center located on the South Side of Chicago.</div>
                             </div>
                             <div class="mb-4">
-                                <a class="link-dark" href="https://www.thetrevorproject.org/explore/"><h4>The Trevor Project</h4></a>
+                                <a class="link-dark" href="https://www.thetrevorproject.org/explore/" rel='noreferrer' target='_blank'><h4>The Trevor Project</h4></a>
                                 <div class='fs-5'>The Trevor Project's mission is to end suicide among LGBTQ young people.</div>
                             </div>
 
