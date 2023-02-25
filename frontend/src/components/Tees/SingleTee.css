@@ -8,11 +8,12 @@
 }
 
 .tee-pic {
-    width: 400px;
+    width: 500px;
     border: 1px solid blue;
 }
 
 .tee-info {
+    margin-top: 50px;
     width: 60%;
     border: 1px solid green;
     align-self: flex-start;

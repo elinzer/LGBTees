@@ -35,8 +35,19 @@ const Tees = () => {
                 {teeList.map((tee) => (
                     <div key={tee.id} className='tee-card'>
                         {sessionUser && (
+                            <OverlayTrigger
+                                key='right'
+                                placement='right'
+                                overlay={
+                                    <Tooltip id={`tooltip-right`}>
+                                        {currentFavesList.some(currFave => currFave.id === tee.id) ? "Remove from your faves" : "Add to your faves"}
+                                    </Tooltip>
+                                }
+                            >
                             <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
-                            onClick={(e) => {addOrRemoveFave(tee)}}></i></div>
+                            onClick={(e) => {addOrRemoveFave(tee)}}></i>
+                            </div>
+                            </OverlayTrigger>
                             )}
                         <NavLink to={`/tee/${tee.id}`}>
                             <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
