@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Image from "react-bootstrap/esm/Image";
-import Overlay from "react-bootstrap/esm/Overlay";
 import OverlayTrigger from "react-bootstrap/esm/OverlayTrigger";
 import Tooltip from "react-bootstrap/esm/Tooltip";
 import Button from "react-bootstrap/esm/Button";
@@ -57,8 +56,20 @@ const MyTees = () => {
                     <div className='tee-display'>
                         {faveList?.map(fave => (
                             <div key={fave.id} className='tee-card'>
-                                <div className='fave-heart'><i className={faveList.some(currFave => currFave.id === fave.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
-                            onClick={(e) => {addOrRemoveFave(fave)}}></i></div>
+                                <div className='fave-heart'>
+                                <OverlayTrigger
+                                    key='right'
+                                    placement='right'
+                                    overlay={
+                                        <Tooltip id={`tooltip-right`}>
+                                            Remove from faves
+                                        </Tooltip>
+                                    }>
+                                    <i className={faveList.some(currFave => currFave.id === fave.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
+                                        onClick={(e) => { addOrRemoveFave(fave) }}></i>
+                                        </OverlayTrigger>
+                                </div>
+
                                 <Image src={fave.imageUrl} alt={fave.name} className='tee-img' fluid />
                                 <div>
                                     <OverlayTrigger

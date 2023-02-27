@@ -4,7 +4,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { useSelector, useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import SearchBar from '../SearchBar';
-import SingleTee from './SingleTee';
 import * as faveActions from '../../store/faves';
 import './tees.css'
 
