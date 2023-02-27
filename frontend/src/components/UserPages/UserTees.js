@@ -69,7 +69,7 @@ const MyTees = () => {
                                                 Click to buy from {fave.brand}!
                                             </Tooltip>
                                         }>
-                                        <a href={fave.url} target='_blank' className='tee-link'>{fave.name}</a>
+                                        <a href={fave.url} target='_blank' rel='noreferrer' className='tee-link'>{fave.name}</a>
                                     </OverlayTrigger>
                                 </div>
                                 <div className='tee-brand'>
@@ -81,7 +81,7 @@ const MyTees = () => {
                                                 Click to visit {fave.brand}!
                                             </Tooltip>
                                         }>
-                                        <a href={fave.brandUrl} target='_blank'>{fave.brand}</a>
+                                        <a href={fave.brandUrl} target='_blank' rel='noreferrer'>{fave.brand}</a>
                                     </OverlayTrigger>
                                 </div>
                                 <div>${fave.price}</div>
