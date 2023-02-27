@@ -4,7 +4,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { useSelector, useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import SearchBar from '../SearchBar';
-import SingleTee from './SingleTee';
 import * as faveActions from '../../store/faves';
 import './tees.css'
 
@@ -61,7 +60,7 @@ const Tees = () => {
                                         Click to buy from {tee.brand}!
                                     </Tooltip>
                                 }>
-                                <a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a>
+                                <a href={tee.url} target='_blank' rel='noreferrer' className='tee-link'>{tee.name}</a>
                             </OverlayTrigger>
                         </div>
                         <div className='tee-brand'>
@@ -73,7 +72,7 @@ const Tees = () => {
                                         Click to visit {tee.brand}!
                                     </Tooltip>
                                 }>
-                                <a href={tee.brandUrl} target='_blank'>{tee.brand}</a>
+                                <a href={tee.brandUrl} target='_blank' rel='noreferrer'>{tee.brand}</a>
                             </OverlayTrigger>
                         </div>
                         <div>${tee.price}</div>
