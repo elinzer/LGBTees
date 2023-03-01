@@ -35,8 +35,8 @@ export const getReviews = (teeId) => async (dispatch) => {
 }
 
 export const createReview = (data) => async (dispatch) => {
-
-    const { userId, teeId, rating, review } = data;
+    console.log(data)
+    const { userId, teeId, stars, review } = data;
     const response = await csrfFetch(`/api/reviews`, {
         method: "POST",
         headers: {
@@ -45,7 +45,7 @@ export const createReview = (data) => async (dispatch) => {
         body: JSON.stringify({
             userId,
             teeId,
-            rating,
+            stars,
             review
         })
     });
@@ -57,7 +57,7 @@ export const createReview = (data) => async (dispatch) => {
 
 export const updateReview = (data) => async (dispatch) => {
 
-    const { userId, teeId, rating, review } = data;
+    const { userId, teeId, stars, review } = data;
     const response = await csrfFetch(`/api/reviews/${data.id}`, {
         method: "PUT",
         headers: {
@@ -66,7 +66,7 @@ export const updateReview = (data) => async (dispatch) => {
         body: JSON.stringify({
             userId,
             teeId,
-            rating,
+            stars,
             review
         })
     });

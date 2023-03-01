@@ -18,11 +18,11 @@ router.get('/:teeId', async (req, res) => {
 
 //create a review
 router.post('/', requireAuth, async (req, res) => {
-    const { userId, teeId, rating, review } = req.body;
+    const { userId, teeId, stars, review } = req.body;
     const newReview = await Review.create({
         userId,
         teeId,
-        rating,
+        stars,
         review
     });
 
@@ -34,14 +34,14 @@ router.post('/', requireAuth, async (req, res) => {
 
 //update a review
 router.put('/:reviewId', requireAuth, async (req, res) => {
-    const { userId, teeId, rating, review } = req.body;
+    const { userId, teeId, stars, review } = req.body;
     const reviewToUpdate = await Review.findByPk(req.params.reviewId);
 
     if (reviewToUpdate) {
         await reviewToUpdate.update({
             userId,
             teeId,
-            rating,
+            stars,
             review
         });
         res.json({
