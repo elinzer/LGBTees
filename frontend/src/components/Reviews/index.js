@@ -10,7 +10,6 @@ const Reviews = ({ teeId }) => {
     const reviews = useSelector(state => state.reviews);
     const reviewList = Object.values(reviews);
     const sessionUser = useSelector(state => state.session.user);
-    console.log(reviewList)
 
     const [review, setReview] = useState("");
 
@@ -32,6 +31,10 @@ const Reviews = ({ teeId }) => {
         setReview("");
     }
 
+    const handleDelete = (reviewId) => {
+        dispatch(reviewsActions.removeReview(reviewId));
+    }
+
     return (
         <div>
             <h2>Reviews</h2>
@@ -47,7 +50,15 @@ const Reviews = ({ teeId }) => {
             <ul>
                 {reviewList.map(review => (
                     <li key={review.id}>
-                        <div>{review.review}</div>
+                        <div>
+                            {review.review}
+                            {sessionUser && review.userId == sessionUser.id && (
+                            <>
+                            <Button variant="outline-primary"><i className="fa-regular fa-pen-to-square"></i></Button>
+                            <Button variant="outline-danger" onClick={handleDelete(review.id)}><i className="fa-solid fa-trash"></i></Button>
+                            </>
+                            )}
+                            </div>
                     </li>
                 ))}
             </ul>
