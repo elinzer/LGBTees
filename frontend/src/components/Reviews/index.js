@@ -10,7 +10,8 @@ const Reviews = ({ teeId }) => {
     const reviews = useSelector(state => state.reviews);
     const reviewList = Object.values(reviews);
     const sessionUser = useSelector(state => state.session.user);
-    
+    console.log(reviewList)
+
     const [review, setReview] = useState("");
 
     useEffect(() => {
@@ -36,7 +37,7 @@ const Reviews = ({ teeId }) => {
             <h2>Reviews</h2>
             {sessionUser && (<Form>
                 <Form.Group controlId="ControlTextarea1">
-                    <Form.Label>Review</Form.Label>
+                    <Form.Label>Write a review</Form.Label>
                     <Form.Control as="textarea" rows={3} value={review} onChange={(e) => setReview(e.target.value)}/>
                 </Form.Group>
                 <Button variant="primary" type="submit" onClick={onSubmit}>
