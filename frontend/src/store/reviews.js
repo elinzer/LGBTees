@@ -56,8 +56,8 @@ export const createReview = (data) => async (dispatch) => {
 
 export const updateReview = (data) => async (dispatch) => {
 
-    const { userId, teeId, stars, review } = data;
-    const response = await csrfFetch(`/api/reviews/${data.id}`, {
+    const { id, userId, teeId, stars, review } = data;
+    const response = await csrfFetch(`/api/reviews/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

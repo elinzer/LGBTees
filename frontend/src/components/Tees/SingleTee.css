@@ -1,6 +1,6 @@
 .indv-tee {
     display: flex;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex-direction: column;
     width: 60%;
     margin: 0 auto;
@@ -21,7 +21,6 @@
 }
 
 .reviews {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     width: 60%;

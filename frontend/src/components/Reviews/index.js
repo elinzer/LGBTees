@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import EditModal from "./EditModal";
 
 const Reviews = ({ teeId }) => {
 
@@ -12,10 +13,13 @@ const Reviews = ({ teeId }) => {
     const sessionUser = useSelector(state => state.session.user);
 
     const [review, setReview] = useState("");
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         dispatch(reviewsActions.getReviews(teeId));
     }, [dispatch, teeId]);
+
+    const handleShow = () => setShow(!show);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +35,8 @@ const Reviews = ({ teeId }) => {
         setReview("");
     }
 
-    const handleDelete = (reviewId) => {
+    const handleDelete = (e, reviewId) => {
+        e.preventDefault();
         dispatch(reviewsActions.removeReview(reviewId));
     }
 
@@ -54,8 +59,9 @@ const Reviews = ({ teeId }) => {
                             {review.review}
                             {sessionUser && review.userId == sessionUser.id && (
                             <>
-                            <Button variant="outline-primary"><i className="fa-regular fa-pen-to-square"></i></Button>
-                            <Button variant="outline-danger" onClick={handleDelete(review.id)}><i className="fa-solid fa-trash"></i></Button>
+                            <EditModal review={review} show={show} setShow={setShow}/>
+                            <Button variant="outline-primary" onClick={handleShow}><i className="fa-regular fa-pen-to-square"></i></Button>
+                            <Button variant="outline-danger" onClick={(e) => handleDelete(e, review.id)}><i className="fa-solid fa-trash"></i></Button>
                             </>
                             )}
                             </div>
