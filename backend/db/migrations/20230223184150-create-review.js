@@ -14,8 +14,9 @@ module.exports = {
         references: { model: 'Users' },
         onDelete: 'CASCADE'
       },
-      teeID: {
+      teeId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: { model: 'Tees' },
         onDelete: 'CASCADE'
       },
