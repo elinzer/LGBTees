@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import EditModal from "./EditModal";
+import Stars from "./Stars";
 
 const Reviews = ({ teeId }) => {
 
@@ -56,6 +57,7 @@ const Reviews = ({ teeId }) => {
                 {reviewList.map(review => (
                     <li key={review.id}>
                         <div>
+                            <Stars review={review}/>
                             {review.review}
                             {sessionUser && review.userId == sessionUser.id && (
                             <>
