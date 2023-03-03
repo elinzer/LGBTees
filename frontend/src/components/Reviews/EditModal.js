@@ -7,6 +7,8 @@ import * as reviewsActions from "../../store/reviews";
 
 const EditModal = ({ review, show, setShow }) => {
 
+    // console.log("review being passed" , review)
+
     const dispatch = useDispatch();
     const [reviewText, setReviewText] = useState(review.review);
 
