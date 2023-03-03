@@ -13,6 +13,7 @@ const WriteStars = ({handleStars}) => {
     return (
         <div>
         <Rating
+            size="24px"
             ratingValue={rating}
             onClick={handleRating}
             transition="true"
