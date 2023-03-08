@@ -17,12 +17,17 @@ const Reviews = ({ teeId }) => {
     const [review, setReview] = useState("");
     const [show, setShow] = useState(false);
     const [stars, setStars] = useState(0);
+    const [reviewToEdit, setReviewToEdit] = useState({});
+
+    console.log("review to edit", reviewToEdit)
 
     useEffect(() => {
         dispatch(reviewsActions.getReviews(teeId));
     }, [dispatch, teeId]);
 
-    const handleShow = () => setShow(!show);
+    const handleShow = () => {
+        setShow(!show);
+    };
 
     const handleStars = (rate) => {
         setStars(rate);
@@ -54,13 +59,14 @@ const Reviews = ({ teeId }) => {
                 <Form>
                     <Form.Group controlId="ControlTextarea1">
                         <Form.Label>Write a review</Form.Label>
-                        <WriteStars handleStars={handleStars}/>
+                        <WriteStars handleStars={handleStars} />
                         <Form.Control as="textarea" rows={3} value={review} onChange={(e) => setReview(e.target.value)} />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                         Submit Review
                     </Button>
                 </Form>)}
+            {show && (<EditModal review={reviewToEdit} show={show} setShow={setShow} />)}
             <ul>
                 {reviewList.map(review => (
                     <li key={review.id}>
@@ -69,8 +75,12 @@ const Reviews = ({ teeId }) => {
                             {review.review}
                             {sessionUser && review.userId == sessionUser.id && (
                                 <>
-                                    <EditModal review={review} show={show} setShow={setShow} />
-                                    <Button variant="outline-primary" onClick={handleShow}><i className="fa-regular fa-pen-to-square"></i></Button>
+                                    <Button variant="outline-primary" onClick={
+                                        () => {
+                                            setReviewToEdit(review);
+                                            handleShow();
+                                        }
+                                    }><i className="fa-regular fa-pen-to-square"></i></Button>
                                     <Button variant="outline-danger" onClick={(e) => handleDelete(e, review.id)}><i className="fa-solid fa-trash"></i></Button>
                                 </>
                             )}
