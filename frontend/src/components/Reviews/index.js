@@ -58,7 +58,7 @@ const Reviews = ({ teeId }) => {
         <div className="review-container">
             <h2>Reviews</h2>
             {sessionUser && userHasReview !== true && (
-                <Form>
+                <Form className="review-form">
                     <Form.Group controlId="ControlTextarea1">
                         <Form.Label>Own and love this shirt? Write a review!</Form.Label>
                         <WriteStars handleStars={handleStars} />
@@ -72,7 +72,7 @@ const Reviews = ({ teeId }) => {
             {show && (<EditModal review={reviewToEdit} show={show} setShow={setShow} />)}
             <ul>
                 {reviewList.map(review => (
-                    <li key={review.id}>
+                    <li key={review.id} className='single-review' >
                         <div>
                             <Stars review={review} />
                             {review.review}

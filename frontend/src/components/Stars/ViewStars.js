@@ -8,7 +8,7 @@ const Stars = ({ review }) => {
 
     return (
         <div>
-            <Rating initialValue={rating} ratingValue={rating} readonly="true" />
+            <Rating initialValue={rating} ratingValue={rating} readonly="true" size="28px" />
         </div>
     )
 }

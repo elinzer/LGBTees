@@ -1,9 +1,19 @@
 .review-container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    border: 1px solid red;
-    /* justify-content: center; */
-    /* width: 60%; */
+    /* border: 1px solid red; */
+    margin: 0 50px;
+    padding-bottom: 5px;
+}
+
+.review-form {
+    border: 1px solid green;
+    padding: 5px 5px;
+}
+
+.single-review {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
     margin: 0 50px;
 }
