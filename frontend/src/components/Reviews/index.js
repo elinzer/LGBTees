@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import EditModal from "./EditModal";
+import EditModal from "../Modals/EditReviewModal";
 import Stars from "../Stars/ViewStars";
 import WriteStars from "../Stars/CreateStars";
+import "./Reviews.css";
 
 const Reviews = ({ teeId }) => {
 
@@ -19,7 +20,8 @@ const Reviews = ({ teeId }) => {
     const [stars, setStars] = useState(0);
     const [reviewToEdit, setReviewToEdit] = useState({});
 
-    console.log("review to edit", reviewToEdit)
+    const userHasReview = reviewList.some(review => review.userId === sessionUser.id);
+
 
     useEffect(() => {
         dispatch(reviewsActions.getReviews(teeId));
@@ -53,19 +55,20 @@ const Reviews = ({ teeId }) => {
     }
 
     return (
-        <div>
+        <div className="review-container">
             <h2>Reviews</h2>
-            {sessionUser && (
+            {sessionUser && userHasReview !== true && (
                 <Form>
                     <Form.Group controlId="ControlTextarea1">
-                        <Form.Label>Write a review</Form.Label>
+                        <Form.Label>Own and love this shirt? Write a review!</Form.Label>
                         <WriteStars handleStars={handleStars} />
                         <Form.Control as="textarea" rows={3} value={review} onChange={(e) => setReview(e.target.value)} />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                         Submit Review
                     </Button>
-                </Form>)}
+                </Form>
+                )}
             {show && (<EditModal review={reviewToEdit} show={show} setShow={setShow} />)}
             <ul>
                 {reviewList.map(review => (
