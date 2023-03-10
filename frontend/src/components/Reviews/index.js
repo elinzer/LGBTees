@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import EditModal from "./EditModal";
+import EditModal from "../Modals/EditReviewModal";
 import Stars from "../Stars/ViewStars";
 import WriteStars from "../Stars/CreateStars";
+import "./Reviews.css";
 
 const Reviews = ({ teeId }) => {
 
@@ -20,7 +21,7 @@ const Reviews = ({ teeId }) => {
     const [reviewToEdit, setReviewToEdit] = useState({});
 
     const userHasReview = reviewList.some(review => review.userId === sessionUser.id);
-    
+
 
     useEffect(() => {
         dispatch(reviewsActions.getReviews(teeId));
@@ -54,7 +55,7 @@ const Reviews = ({ teeId }) => {
     }
 
     return (
-        <div>
+        <div className="review-container">
             <h2>Reviews</h2>
             {sessionUser && userHasReview !== true && (
                 <Form>
