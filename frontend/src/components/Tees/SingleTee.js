@@ -67,10 +67,10 @@ const SingleTee = () => {
                     <div>Brand: <a href={tee.brandUrl} target='_blank' rel="noreferrer">{tee.brand}</a></div>
                     <div><a href={tee.url} target='_blank' rel="noreferrer">Buy from {tee.brand} here!</a></div>
                 </div>
+            </div>
                 <div className="reviews">
                     <Reviews teeId={tee.id} />
                 </div>
-            </div>
         </div>
     )
 }
