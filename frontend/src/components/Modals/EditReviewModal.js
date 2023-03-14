@@ -1,13 +1,14 @@
 import Button from "react-bootstrap/esm/Button";
 import Modal from "react-bootstrap/esm/Modal";
 import Form from "react-bootstrap/esm/Form";
+import EditStars from "../Stars/EditStars";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as reviewsActions from "../../store/reviews";
 
 const EditModal = ({ review, show, setShow }) => {
 
-    
+
 
     const dispatch = useDispatch();
     const [reviewText, setReviewText] = useState(review.review);
@@ -33,8 +34,9 @@ const EditModal = ({ review, show, setShow }) => {
             </Modal.Header>
             <Modal.Body>
                 <Form>
+                    <EditStars reviewStars={review.stars}/>
                     <Form.Group controlId="ControlTextarea1">
-                        <Form.Label>Edit your review</Form.Label>
+                        {/* <Form.Label>Edit your review</Form.Label> */}
                         <Form.Control as="textarea" rows={3} value={reviewText} onChange={(e) => setReviewText(e.target.value)} />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={(e) => {handleEdit(e) ; setShow(false)}}>
