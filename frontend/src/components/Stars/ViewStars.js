@@ -1,14 +1,19 @@
 import { Rating } from 'react-simple-star-rating';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
-const Stars = ({ review }) => {
+const Stars = ({ stars }) => {
 
-    const [rating, setRating] = useState(review.stars);
+    const [rating, setRating] = useState(stars);
+
+    useEffect(() => {
+        setRating(stars);
+    }, [stars]);
 
     return (
         <div>
-            <Rating initialValue={rating} ratingValue={rating} readonly="true" />
+            <Rating initialValue={rating}
+            readonly="true" size="28px" />
         </div>
     )
 }

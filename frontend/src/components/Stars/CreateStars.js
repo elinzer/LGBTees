@@ -13,8 +13,9 @@ const WriteStars = ({handleStars}) => {
     return (
         <div>
         <Rating
-            size="24px"
+            size="28px"
             ratingValue={rating}
+            onPointerLeave={() => setRating(0)}
             onClick={handleRating}
             transition="true"
         />
