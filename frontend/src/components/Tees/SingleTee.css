@@ -1,3 +1,7 @@
+.single-tee-container {
+    height: 100vh;
+}
+
 .indv-tee {
     display: flex;
     /* border: 1px solid red; */

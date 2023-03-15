@@ -23,7 +23,7 @@ const Reviews = ({ teeId }) => {
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
-    const userHasReview = reviewList.some(review => review.userId === sessionUser.id);
+    const userHasReview = reviewList.some(review => review.userId === sessionUser?.id);
 
 
     useEffect(() => {

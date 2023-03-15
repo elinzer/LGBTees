@@ -38,7 +38,7 @@ const SingleTee = () => {
     }
 
     return (
-        <div>
+        <div className="single-tee-container">
             <Button className="back-btn" variant="outline-secondary" size='sm' href="/tees"><i className="fa-solid fa-arrow-left"></i> Back</Button>
             <div className="indv-tee">
                 <div className="tee-n-title">
