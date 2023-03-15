@@ -1,15 +1,19 @@
 .review-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 50px 50px;
     padding-bottom: 5px;
-    
+
 }
 
 .review-form {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     padding: 5px 5px;
+}
+
+.review-form > div {
+    padding-bottom: 5px;
 }
 
 .single-review {
@@ -17,3 +21,16 @@
     flex-direction: column;
     margin: 0 50px;
 }
+
+.errors {
+    color: red;
+    font-style: italic;
+}
+
+.review-textarea {
+    resize: none;
+}
+
+/* .review-textarea::focus {
+    outline: none !important;
+} */

@@ -109,6 +109,25 @@ module.exports = {
         brandUrl: 'https://transfigureprintco.com/',
         imageUrl: 'https://images.squarespace-cdn.com/content/v1/5d0c51d9de0717000158d294/1673022161489-6H8AWZZK0Q3W1H4EILPC/byamaroon.png?format=1500w',
       },
+      {
+        name: "Pronouns Save Lives",
+        url: 'https://pronounssavelives.com/products/pronouns-save-lives-tie-dye-t-shirt',
+        userId: 1,
+        price: 35.00,
+        brand: 'Pronouns Save Lives',
+        brandUrl: 'https://pronounssavelives.com/',
+        imageUrl: 'https://i.imgur.com/f9rZpfT.png',
+      },
+      {
+        name: "Be Yourself Anyway",
+        url: 'https://transfigureprintco.com/shop/be-yourself-anyway-shirt-y74ct',
+        userId: 1,
+        price: 25.00,
+        brand: 'Transfigure Print Co.',
+        brandUrl: 'https://transfigureprintco.com/',
+        imageUrl: 'https://images.squarespace-cdn.com/content/v1/5d0c51d9de0717000158d294/1678479741773-ZEC3A3Q951KJ2VP5TWYZ/BYAgreen.png?format=2500w',
+      }
+
     ], {});
 
   },

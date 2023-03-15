@@ -89,13 +89,13 @@ const Reviews = ({ teeId }) => {
                     {errors.length > 0 && hasSubmitted && (
                         <div className="errors">
                             {errors.map((error, idx) =>
-                                <div key={idx}>{error}</div>)}
+                                <li key={idx}>{error}</li>)}
                         </div>
                     )}
                     <Form.Group controlId="ControlTextarea1">
                         <Form.Label style={{ fontStyle: "italic" }}>Own and love this shirt? Write a review!</Form.Label>
                         <WriteStars handleStars={handleStars} />
-                        <Form.Control as="textarea" rows={3} value={review} onChange={(e) => setReview(e.target.value)} />
+                        <Form.Control className="review-textarea" as="textarea" rows={3} value={review} onChange={(e) => setReview(e.target.value)} />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                         Submit Review
