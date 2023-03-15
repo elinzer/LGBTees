@@ -3,7 +3,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer class="bg-dark py-4 mt-auto footer">
+        <footer class="bg-dark py-4 footer">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0 text-white">All t-shirt images are property of their respective retailers. No copyright infringement intended.</div></div>

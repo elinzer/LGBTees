@@ -4,7 +4,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { useSelector, useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import SearchBar from '../SearchBar';
-import SingleTee from './SingleTee';
 import * as faveActions from '../../store/faves';
 import './tees.css'
 
@@ -35,12 +34,23 @@ const Tees = () => {
                 {teeList.map((tee) => (
                     <div key={tee.id} className='tee-card'>
                         {sessionUser && (
+                            <OverlayTrigger
+                                key='right'
+                                placement='right'
+                                overlay={
+                                    <Tooltip id={`tooltip-right`}>
+                                        {currentFavesList.some(currFave => currFave.id === tee.id) ? "Remove from your faves" : "Add to your faves"}
+                                    </Tooltip>
+                                }
+                            >
                             <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
-                            onClick={(e) => {addOrRemoveFave(tee)}}></i></div>
+                            onClick={(e) => {addOrRemoveFave(tee)}}></i>
+                            </div>
+                            </OverlayTrigger>
                             )}
-                        {/* <NavLink to={`/single-tee/${tee.id}`}> */}
+                        <NavLink to={`/tee/${tee.id}`}>
                             <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
-                            {/* </NavLink> */}
+                            </NavLink>
                         <div>
                             <OverlayTrigger
                                 key='top'
@@ -50,7 +60,7 @@ const Tees = () => {
                                         Click to buy from {tee.brand}!
                                     </Tooltip>
                                 }>
-                                <a href={tee.url} target='_blank' className='tee-link'>{tee.name}</a>
+                                <a href={tee.url} target='_blank' rel='noreferrer' className='tee-link'>{tee.name}</a>
                             </OverlayTrigger>
                         </div>
                         <div className='tee-brand'>
@@ -62,7 +72,7 @@ const Tees = () => {
                                         Click to visit {tee.brand}!
                                     </Tooltip>
                                 }>
-                                <a href={tee.brandUrl} target='_blank'>{tee.brand}</a>
+                                <a href={tee.brandUrl} target='_blank' rel='noreferrer'>{tee.brand}</a>
                             </OverlayTrigger>
                         </div>
                         <div>${tee.price}</div>

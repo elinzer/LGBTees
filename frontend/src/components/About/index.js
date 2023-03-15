@@ -67,10 +67,10 @@ const About = () => {
                                     <div class="fst-italic text-muted">Software Engineer</div>
                                     <div class='contact'>
                                         <div class='contact-child'>
-                                            <a href='https://www.linkedin.com/in/elinzer/' target='_blank'><i class="devicon-linkedin-plain"></i></a>
+                                            <a href='https://www.linkedin.com/in/elinzer/' target='_blank' rel='noreferrer'><i class="devicon-linkedin-plain"></i></a>
                                         </div>
                                         <div class='contact-child'>
-                                        <a href='https://github.com/elinzer' target='_blank'><i class="devicon-github-original"></i></a>
+                                        <a href='https://github.com/elinzer' target='_blank' rel='noreferrer'><i class="devicon-github-original"></i></a>
                                         </div>
                                     </div>
                                 </div>
