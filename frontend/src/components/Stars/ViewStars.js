@@ -1,12 +1,14 @@
 import { Rating } from 'react-simple-star-rating';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const Stars = ({ stars }) => {
 
     const [rating, setRating] = useState(stars);
 
-    console.log(stars)
+    useEffect(() => {
+        setRating(stars);
+    }, [stars]);
 
     return (
         <div>

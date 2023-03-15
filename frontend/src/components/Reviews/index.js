@@ -20,6 +20,8 @@ const Reviews = ({ teeId }) => {
     const [show, setShow] = useState(false);
     const [stars, setStars] = useState(0);
     const [reviewToEdit, setReviewToEdit] = useState({});
+    const [errors, setErrors] = useState([]);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     const userHasReview = reviewList.some(review => review.userId === sessionUser.id);
 
@@ -27,6 +29,21 @@ const Reviews = ({ teeId }) => {
     useEffect(() => {
         dispatch(reviewsActions.getReviews(teeId));
     }, [dispatch, teeId]);
+
+    useEffect(() => {
+        let errs = [];
+
+        if (stars === 0) errs.push("Please select a star rating");
+        if (review.length < 10) errs.push("Please write a review that is at least 10 characters long");
+        if (review.length > 500) errs.push("Please write a review that is less than 500 characters long");
+
+        if (errs.length > 0) {
+            setErrors(errs);
+        } else {
+            setErrors([]);
+        }
+
+    }, [review, stars]);
 
     const handleShow = () => {
         setShow(!show);
@@ -38,16 +55,24 @@ const Reviews = ({ teeId }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        setHasSubmitted(true);
 
-        const data = {
-            userId: sessionUser.id,
-            teeId: teeId,
-            stars: stars,
-            review
+        if (errors.length) {
+            return;
+        } else {
+
+            const data = {
+                userId: sessionUser.id,
+                teeId: teeId,
+                stars: stars,
+                review
+            }
+
+            dispatch(reviewsActions.createReview(data));
+            setReview("");
+            setErrors([]);
+            setHasSubmitted(false);
         }
-
-        dispatch(reviewsActions.createReview(data));
-        setReview("");
     }
 
     const handleDelete = (e, reviewId) => {
@@ -57,11 +82,18 @@ const Reviews = ({ teeId }) => {
 
     return (
         <div className="review-container">
-            <h2>Reviews</h2>
+            {/* <h2>Reviews</h2> */}
+
             {sessionUser && userHasReview !== true && (
                 <Form className="review-form">
+                    {errors.length > 0 && hasSubmitted && (
+                        <div className="errors">
+                            {errors.map((error, idx) =>
+                                <div key={idx}>{error}</div>)}
+                        </div>
+                    )}
                     <Form.Group controlId="ControlTextarea1">
-                        <Form.Label>Own and love this shirt? Write a review!</Form.Label>
+                        <Form.Label style={{ fontStyle: "italic" }}>Own and love this shirt? Write a review!</Form.Label>
                         <WriteStars handleStars={handleStars} />
                         <Form.Control as="textarea" rows={3} value={review} onChange={(e) => setReview(e.target.value)} />
                     </Form.Group>
