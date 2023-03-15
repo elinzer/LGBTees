@@ -2,6 +2,7 @@ import * as reviewsActions from "../../store/reviews";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import EditModal from "../Modals/EditReviewModal";
 import Stars from "../Stars/ViewStars";
@@ -68,26 +69,32 @@ const Reviews = ({ teeId }) => {
                         Submit Review
                     </Button>
                 </Form>
-                )}
+            )}
             {show && (<EditModal review={reviewToEdit} show={show} setShow={setShow} />)}
             <ul>
                 {reviewList.map(review => (
                     <li key={review.id} className='single-review' >
-                        <div>
-                            <Stars review={review} />
-                            {review.review}
-                            {sessionUser && review.userId == sessionUser.id && (
-                                <>
-                                    <Button variant="outline-primary" onClick={
-                                        () => {
-                                            setReviewToEdit(review);
-                                            handleShow();
-                                        }
-                                    }><i className="fa-regular fa-pen-to-square"></i></Button>
-                                    <Button variant="outline-danger" onClick={(e) => handleDelete(e, review.id)}><i className="fa-solid fa-trash"></i></Button>
-                                </>
-                            )}
-                        </div>
+                        <Card>
+                            <Card.Header>
+                                <Stars stars={review.stars} />
+                            </Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    {review.review}
+                                </Card.Text>
+                                {sessionUser && review.userId == sessionUser.id && (
+                                    <>
+                                        <Button variant="outline-primary" onClick={
+                                            () => {
+                                                setReviewToEdit(review);
+                                                handleShow();
+                                            }
+                                        }><i className="fa-regular fa-pen-to-square"></i></Button>
+                                        <Button variant="outline-danger" onClick={(e) => handleDelete(e, review.id)}><i className="fa-solid fa-trash"></i></Button>
+                                    </>
+                                )}
+                            </Card.Body>
+                        </Card>
                     </li>
                 ))}
             </ul>
