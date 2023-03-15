@@ -38,8 +38,8 @@ const SingleTee = () => {
     }
 
     return (
-        <div>
-            <Button className="back-btn" variant="outline-secondary" size='sm' href="/tees"><i className="fa-solid fa-arrow-left"></i></Button>
+        <div className="single-tee-container">
+            <Button className="back-btn" variant="outline-secondary" size='sm' href="/tees"><i className="fa-solid fa-arrow-left"></i> Back</Button>
             <div className="indv-tee">
                 <div className="tee-n-title">
                     <h3>{tee.name}</h3>
@@ -62,8 +62,8 @@ const SingleTee = () => {
                 </div>
                 <div className="tee-info">
                     <div>Price: ${tee.price}</div>
-                    <div>Brand: <a href={tee.brandUrl} target='_blank' rel="noreferrer">{tee.brand}</a></div>
-                    <div><a href={tee.url} target='_blank' rel="noreferrer">Buy from {tee.brand} here!</a></div>
+                    <div className="brand-link">Brand: <a href={tee.brandUrl} target='_blank' rel="noreferrer">{tee.brand}</a></div>
+                    <div className="brand-link"><a href={tee.url} target='_blank' rel="noreferrer">Buy from {tee.brand} here!</a></div>
                 </div>
             </div>
             <div className="reviews">
