@@ -43,6 +43,18 @@ npx dotenv sequelize db:seed:all
 ### Tees while logged in
 <img width="1412" alt="Screen Shot 2023-02-20 at 8 54 53 AM" src="https://user-images.githubusercontent.com/101808290/220140246-c6de898f-c913-46b4-84b9-dadff33e73f7.png">
 
+### A single Tee's page
+<img width="1142" alt="Screenshot 2023-03-16 at 10 46 51 AM" src="https://user-images.githubusercontent.com/101808290/225674479-a74ab3ea-c18f-43c7-b677-53e4442a69b9.png">
+
 ### Faves
 <img width="816" alt="Screen Shot 2023-02-20 at 9 27 08 AM" src="https://user-images.githubusercontent.com/101808290/220146453-4e5f0d23-8f3c-4d3d-ab8a-66f1d199a3c5.png">
+
+### Create review (if logged in and no prior review on tee)
+<img width="1007" alt="Screenshot 2023-03-16 at 10 45 52 AM" src="https://user-images.githubusercontent.com/101808290/225674923-268f92cd-42e4-472a-a47f-9555bf802042.png">
+
+### Reviews while logged in
+<img width="893" alt="Screenshot 2023-03-16 at 10 46 14 AM" src="https://user-images.githubusercontent.com/101808290/225675553-b453b5d0-9c0e-43ef-b809-e0999f942c9d.png">
+
+### Edit review
+<img width="540" alt="Screenshot 2023-03-16 at 10 46 25 AM" src="https://user-images.githubusercontent.com/101808290/225675645-1018e57a-84c4-4ad5-9a0e-f89151a9edb8.png">
 
