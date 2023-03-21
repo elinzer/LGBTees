@@ -37,28 +37,28 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-      <Route exact path="/">
-        <Splash />
-      </Route>
-      <Route path="/login">
-        <LoginFormPage />
-      </Route>
-      <Route path="/signup">
-        <SignupFormPage />
-      </Route>
-      <Route path="/tees">
-        <Tees />
-      </Route>
-      <Route path="/tee/:id">
-        <SingleTee />
-      </Route>
-      <Route path="/my-faves">
-          <MyTees />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-    </Switch>
+          <Route exact path="/">
+            <Splash />
+          </Route>
+          <Route path="/login">
+            <LoginFormPage />
+          </Route>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route path="/tees">
+            <Tees />
+          </Route>
+          <Route path="/tee/:id">
+            <SingleTee />
+          </Route>
+          <Route path="/my-faves">
+            <MyTees />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
       )}
       <Footer />
     </>

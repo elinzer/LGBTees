@@ -7,6 +7,7 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
+import ReactGA from 'react-ga';
 
 const store = configureStore();
 
@@ -19,6 +20,10 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 function Root() {
+
+  ReactGA.initialize('G-YZTB560Y6B');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <ReduxProvider store={store}>
       <BrowserRouter>
