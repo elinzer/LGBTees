@@ -5,11 +5,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import * as sessionActions from '../../store/session';
-import lgbtLogo from '../../imgs/lgbteeLogo.png';
+import lgbtLogo from '../../imgs/newLogo.png';
 import './nav.css'
 
 function Navigation({ isLoaded }) {
-  
+
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();

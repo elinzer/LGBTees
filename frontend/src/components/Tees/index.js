@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import * as faveActions from '../../store/faves';
+import teeUnavailable from '../../imgs/unavail.png';
 import './tees.css'
 
 const Tees = () => {
@@ -49,7 +50,7 @@ const Tees = () => {
                             </OverlayTrigger>
                             )}
                         <NavLink to={`/tee/${tee.id}`}>
-                            <Image src={tee.imageUrl} alt={tee.name} className='tee-img' fluid />
+                            <Image src={tee.imageUrl} onError={(e) => e.target.src = teeUnavailable} alt={tee.name} className='tee-img' fluid />
                             </NavLink>
                         <div>
                             <OverlayTrigger
