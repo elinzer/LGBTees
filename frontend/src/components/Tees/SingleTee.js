@@ -6,6 +6,7 @@ import Reviews from "../Reviews";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import * as faveActions from "../../store/faves";
+import teeUnavailable from "../../imgs/unavail.png";
 import './SingleTee.css'
 
 
@@ -58,7 +59,7 @@ const SingleTee = () => {
                             </div>
                         </OverlayTrigger>
                     )}
-                    <Image className="tee-pic" src={tee.imageUrl} alt={tee.name} fluid />
+                    <Image className="tee-pic" src={tee.imageUrl} onError={(e) => e.target.src = teeUnavailable} alt={tee.name} fluid />
                 </div>
                 <div className="tee-info">
                     <div>Price: ${tee.price}</div>
