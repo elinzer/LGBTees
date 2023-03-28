@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Tee.belongsTo(models.User, { foreignKey: 'userId' });
       Tee.hasMany(models.Fave, { foreignKey: 'teeId' });
+      Tee.hasMany(models.Review, { foreignKey: 'teeId' });
     }
   }
   Tee.init({

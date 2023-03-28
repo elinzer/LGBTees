@@ -1,11 +1,16 @@
 const express = require('express');
 const { Review } = require('../../db/models');
+const { User } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
 //get reviews by tee id
 router.get('/:teeId', async (req, res) => {
     const reviews = await Review.findAll({
+        include: {
+            model: User,
+            attributes: ['firstName']
+        },
         where: {
             teeId: req.params.teeId
         }

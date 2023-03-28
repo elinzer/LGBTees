@@ -31,6 +31,6 @@
     resize: none;
 }
 
-/* .review-textarea::focus {
-    outline: none !important;
-} */
+.review-user {
+    font-style: italic;
+}

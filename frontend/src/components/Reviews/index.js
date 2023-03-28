@@ -45,13 +45,8 @@ const Reviews = ({ teeId }) => {
 
     }, [review, stars]);
 
-    const handleShow = () => {
-        setShow(!show);
-    };
-
-    const handleStars = (rate) => {
-        setStars(rate);
-    };
+    const handleShow = () => { setShow(!show) };
+    const handleStars = (rate) => { setStars(rate) };
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -103,16 +98,19 @@ const Reviews = ({ teeId }) => {
                 </Form>
             )}
             {show && (<EditModal review={reviewToEdit} show={show} setShow={setShow} />)}
-            <ul>
-                {reviewList.map(review => (
-                    <li key={review.id} className='single-review' >
+            <div>
+                {reviewList.map((review) => {
+
+                    let reviewDate = new Date(review.createdAt);
+
+                    return (<div key={review.id} className='single-review' >
                         <Card>
                             <Card.Header>
                                 <Stars stars={review.stars} />
                             </Card.Header>
                             <Card.Body>
                                 <Card.Text>
-                                    {review.review}
+                                    {review.review} <span className="review-user">{`- ${review.User.firstName} on ${reviewDate.toDateString()}`}</span>
                                 </Card.Text>
                                 {sessionUser && review.userId == sessionUser.id && (
                                     <>
@@ -127,9 +125,10 @@ const Reviews = ({ teeId }) => {
                                 )}
                             </Card.Body>
                         </Card>
-                    </li>
-                ))}
-            </ul>
+                    </div>)
+                }
+                )}
+            </div>
         </div>
     )
 }
