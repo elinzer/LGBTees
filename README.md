@@ -2,6 +2,8 @@
 
 LGBTees is a passion project of mine - I wanted to strengthen my skills and learn new ones, all while highlighting some awesome threads from LGBTQ+ businesses. <a href='https://lgbtees.herokuapp.com'/>Live site here!</a>
 
+If you would like to work on this project with me, please see how to contact me on my GitHub profile!
+
 ## Built with:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
