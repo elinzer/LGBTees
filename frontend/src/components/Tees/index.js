@@ -2,9 +2,11 @@ import Image from 'react-bootstrap/Image';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import {NavLink} from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import * as faveActions from '../../store/faves';
+import * as reviewActions from '../../store/reviews';
 import teeUnavailable from '../../imgs/unavail.png';
 import './tees.css'
 
@@ -17,6 +19,10 @@ const Tees = () => {
     const currentFavesList = Object.values(currentFaves);
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(reviewActions.getAllReviews());
+    }, [dispatch]);
 
 
     const addOrRemoveFave = (tee) => {

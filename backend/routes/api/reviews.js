@@ -4,6 +4,14 @@ const { User } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
+//get all reviews
+router.get('/', async (req, res) => {
+    const reviews = await Review.findAll();
+    res.json({
+        'Reviews': reviews
+    })
+});
+
 //get reviews by tee id
 router.get('/:teeId', async (req, res) => {
     const reviews = await Review.findAll({
