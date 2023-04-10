@@ -3,7 +3,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import * as faveActions from '../../store/faves';
 import * as reviewActions from '../../store/reviews';
@@ -17,6 +17,8 @@ const Tees = () => {
     const sessionUser = useSelector(state => state.session.user);
     const currentFaves = useSelector(state => state.faves.currentFaves);
     const currentFavesList = Object.values(currentFaves);
+    const reviews = useSelector(state => state.reviews);
+    const reviewsList = Object.values(reviews);
 
     const dispatch = useDispatch();
 
@@ -33,6 +35,15 @@ const Tees = () => {
         }
     }
 
+    const howManyReviews = (teeId) => {
+        let count = 0;
+        reviewsList.forEach(review => {
+            if (review.teeId === teeId) {
+                count++;
+            }
+        })
+        return count;
+    }
 
     return (
         <div>
@@ -50,14 +61,14 @@ const Tees = () => {
                                     </Tooltip>
                                 }
                             >
-                            <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
-                            onClick={(e) => {addOrRemoveFave(tee)}}></i>
-                            </div>
+                                <div className='fave-heart'><i className={currentFavesList.some(currFave => currFave.id === tee.id) ? "fa-solid fa-heart filled" : "fa-regular fa-heart notfilled"}
+                                    onClick={(e) => { addOrRemoveFave(tee) }}></i>
+                                </div>
                             </OverlayTrigger>
-                            )}
+                        )}
                         <NavLink to={`/tee/${tee.id}`}>
                             <Image src={tee.imageUrl} onError={(e) => e.target.src = teeUnavailable} alt={tee.name} className='tee-img' fluid />
-                            </NavLink>
+                        </NavLink>
                         <div>
                             <OverlayTrigger
                                 key='top'
@@ -67,7 +78,7 @@ const Tees = () => {
                                         Click to buy from {tee.brand}!
                                     </Tooltip>
                                 }>
-                                <a href={tee.url} target='_blank' rel='noreferrer' className='tee-link'>{tee.name}</a>
+                                <span><a href={tee.url} target='_blank' rel='noreferrer' className='tee-link'>{tee.name}</a> ({howManyReviews(tee.id)})</span>
                             </OverlayTrigger>
                         </div>
                         <div className='tee-brand'>
